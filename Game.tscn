@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Ship.png" type="Texture" id=3]
+[ext_resource path="res://PlayerShip.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.666667, 0.74902, 0.25098, 1, 0.160784, 0.239216, 0.211765, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 15.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.25
+color_ramp = SubResource( 3 )
+
+[node name="Node" type="Node"]
+
+[node name="GameWorld" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="GameWorld"]
+current = true
+
+[node name="PlayerShip" type="KinematicBody2D" parent="GameWorld"]
+script = ExtResource( 4 )
+
+[node name="Ship" type="Sprite" parent="GameWorld/PlayerShip"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameWorld/PlayerShip"]
+polygon = PoolVector2Array( -7.96128, 1.8365, 0.000499725, -5.4965, 7.93751, 1.94444, 7.91064, 3.01901, 3.91638, 5.04242, -3.9933, 4.96358, -7.98611, 3.03578 )
+
+[node name="ThrusterParticles" type="Particles2D" parent="GameWorld/PlayerShip"]
+position = Vector2( 0, 3 )
+amount = 64
+visibility_rect = Rect2( -2, 0, 4, 2 )
+draw_order = 1
+process_material = SubResource( 1 )
