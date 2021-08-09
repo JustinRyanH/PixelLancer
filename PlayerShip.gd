@@ -5,10 +5,15 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-onready var thruster_particles = $ThrusterParticles
+onready var thruster_particles = $Thrusters
+
+export var thruster_force := 1
+export var rotation_factor := 1
 
 var _accelerating := false
 var _turn := 0.0
+
+var linear_velocity := Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +24,15 @@ func _ready():
 func _process(delta: float) -> void:
 	_gather_input()
 	thruster_particles.emitting = _accelerating
-	rotate(_turn * delta)
+	_handle_velocity(delta)
+	rotate(_turn * rotation_factor * delta)
+	var _collision = move_and_collide(linear_velocity * thruster_force * delta)
+
+	
+func _handle_velocity(delta: float) -> void:
+	if _accelerating:
+		var direction = Vector2.UP.rotated(rotation)
+		linear_velocity += direction
 	
 func _gather_input() -> void:
 	if Input.is_action_just_pressed("accelerate"):
