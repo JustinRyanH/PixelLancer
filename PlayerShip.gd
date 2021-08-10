@@ -7,8 +7,8 @@ extends KinematicBody2D
 
 onready var thruster_particles = $Thrusters
 
-export var thruster_force := 1
-export var rotation_factor := 1
+export var thruster_force := 1.0
+export var rotation_factor := 1.0
 
 var _accelerating := false
 var _turn := 0.0
