@@ -19,7 +19,6 @@ var linear_velocity := Vector2.ZERO
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_gather_input()
@@ -27,9 +26,8 @@ func _process(delta: float) -> void:
 	_handle_velocity(delta)
 	rotate(_turn * rotation_factor * delta)
 	var _collision = move_and_collide(linear_velocity * thruster_force * delta)
-
 	
-func _handle_velocity(delta: float) -> void:
+func _handle_velocity(_delta: float) -> void:
 	if _accelerating:
 		var direction = Vector2.UP.rotated(rotation)
 		linear_velocity += direction
