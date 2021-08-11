@@ -10,6 +10,16 @@ script = ExtResource( 3 )
 thruster_force = 0.25
 rotation_factor = 2.0
 
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+current = true
+zoom = Vector2( 2, 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2( 0, 1.1875 )
+polygon = PoolVector2Array( -7.805, -2.7, 0, -10.29, 7.805, -2.7, 15.5, 4.974, 12.5, 7.75, -12.5, 7.75, -15.5, 5.161 )
+
 [node name="Thrusters" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
@@ -26,13 +36,3 @@ process_material = ExtResource( 1 )
 
 [node name="Ship" type="Sprite" parent="."]
 texture = ExtResource( 4 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2( 0, 1.1875 )
-polygon = PoolVector2Array( -7.805, -2.7, 0, -10.29, 7.805, -2.7, 15.5, 4.974, 12.5, 7.75, -12.5, 7.75, -15.5, 5.161 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
-current = true
-zoom = Vector2( 2, 2 )
