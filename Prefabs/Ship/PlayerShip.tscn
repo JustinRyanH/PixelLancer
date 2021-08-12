@@ -1,19 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Effects/BasicThrusterParticleMaterial.tres" type="Material" id=1]
 [ext_resource path="res://Prefabs/Ship/Thrusters.gd" type="Script" id=2]
 [ext_resource path="res://Prefabs/Ship/PlayerShip.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/Ship.png" type="Texture" id=4]
+[ext_resource path="res://SimpleTrail.gd" type="Script" id=5]
 
 [node name="PlayerShip" type="KinematicBody2D"]
 script = ExtResource( 3 )
-thruster_force = 0.25
+thruster_force = 2.0
 rotation_factor = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 10, 10 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -33,6 +33,20 @@ lifetime = 0.8
 visibility_rect = Rect2( -2, 0, 4, 2 )
 draw_order = 1
 process_material = ExtResource( 1 )
+
+[node name="StarboardTrail" type="Position2D" parent="."]
+modulate = Color( 0.666667, 0.74902, 0.25098, 1 )
+position = Vector2( 15, 5.854 )
+
+[node name="Node2D" type="Node2D" parent="StarboardTrail"]
+script = ExtResource( 5 )
+
+[node name="PortTrail" type="Position2D" parent="."]
+modulate = Color( 0.666667, 0.74902, 0.25098, 0.686275 )
+position = Vector2( -15, 5.854 )
+
+[node name="Node2D" type="Node2D" parent="PortTrail"]
+script = ExtResource( 5 )
 
 [node name="Ship" type="Sprite" parent="."]
 texture = ExtResource( 4 )
