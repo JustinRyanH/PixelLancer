@@ -6,7 +6,6 @@ extends KinematicBody2D
 # var b = "text"
 
 onready var thruster_particles = $Thrusters
-onready var velocity_tagent = $VelocityTangent
 onready var collision_polygon = $CollisionPolygon2D
 
 export var thruster_force := 1.0
@@ -17,8 +16,6 @@ var _accelerating := false
 var _turn := 0.0
 
 var linear_velocity := Vector2.ZERO
-
-onready var _initial_tagent: float = velocity_tagent.position.length()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,21 +28,21 @@ func _process(delta: float) -> void:
 	_handle_velocity(delta)
 	rotate(_turn * rotation_factor * delta)
 	var _collision = move_and_collide(linear_velocity * thruster_force * delta)
-	
+
 func _handle_velocity(_delta: float) -> void:
 	if _accelerating:
 		var direction = Vector2.UP.rotated(rotation)
 		linear_velocity += direction
 	if linear_velocity.length_squared() > max_speed*max_speed:
 		linear_velocity = linear_velocity.clamped(max_speed)
-	velocity_tagent.visible = linear_velocity.length() > 10.0
 	var vt_position = linear_velocity.normalized().tangent()
 	var port_closted_point = find_closest_point(vt_position *  10.0)
 	var starboard_closet_point = find_closest_point(vt_position * -10.0)
-	$PortTrail.position = port_closted_point
-	$StarboardTrail.position = starboard_closet_point
-	
-func find_closest_point(tangent: Vector2) -> Vector2:
+	$PortTrail.position = port_closted_point["closest_point"]
+	$StarboardTrail.position = starboard_closet_point["closest_point"]
+
+func find_closest_point(tangent: Vector2) -> Dictionary:
+	var to_return = {}
 	var closted_point = null
 	for point in collision_polygon.polygon:
 		var rotated_point: Vector2 = point.rotated(rotation)
@@ -53,7 +50,8 @@ func find_closest_point(tangent: Vector2) -> Vector2:
 			closted_point = point
 		if (rotated_point + tangent).length() > (closted_point.rotated(rotation) + tangent).length():
 			closted_point = point
-	return closted_point
+	to_return["closest_point"] = closted_point
+	return to_return
 
 func _gather_input() -> void:
 	if Input.is_action_just_pressed("accelerate"):
