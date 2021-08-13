@@ -36,22 +36,6 @@ func _handle_velocity(_delta: float) -> void:
 	if linear_velocity.length_squared() > max_speed*max_speed:
 		linear_velocity = linear_velocity.clamped(max_speed)
 	var vt_position = linear_velocity.normalized().tangent()
-	var port_closted_point = find_closest_point(vt_position *  10.0)
-	var starboard_closet_point = find_closest_point(vt_position * -10.0)
-	$PortTrail.position = port_closted_point["closest_point"]
-	$StarboardTrail.position = starboard_closet_point["closest_point"]
-
-func find_closest_point(tangent: Vector2) -> Dictionary:
-	var to_return = {}
-	var closted_point = null
-	for point in collision_polygon.polygon:
-		var rotated_point: Vector2 = point.rotated(rotation)
-		if not closted_point:
-			closted_point = point
-		if (rotated_point + tangent).length() > (closted_point.rotated(rotation) + tangent).length():
-			closted_point = point
-	to_return["closest_point"] = closted_point
-	return to_return
 
 func _gather_input() -> void:
 	if Input.is_action_just_pressed("accelerate"):
