@@ -9,6 +9,7 @@
 [node name="GameWorld" type="Node2D" parent="."]
 
 [node name="PlayerShip" parent="GameWorld" instance=ExtResource( 1 )]
+thruster_force = 5.0
 max_speed = 500
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="GameWorld"]
@@ -21,6 +22,7 @@ motion_mirroring = Vector2( 384, 384 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/CloseStars"]
 position = Vector2( -101.782, 50.0565 )
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
 
@@ -28,13 +30,13 @@ centered = false
 position = Vector2( -48.395, -66.6161 )
 rotation = 1.5708
 frames = ExtResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/CloseStars"]
 position = Vector2( 75.7023, -70.5052 )
 frames = ExtResource( 2 )
-frame = 2
 playing = true
 centered = false
 
@@ -42,12 +44,14 @@ centered = false
 position = Vector2( -52.395, 82.9266 )
 rotation = 4.71239
 frames = ExtResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/CloseStars"]
 position = Vector2( 70.7023, 77.9266 )
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
 
@@ -59,13 +63,13 @@ motion_mirroring = Vector2( 384, 384 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/FarStars"]
 position = Vector2( -91.6733, 97.8999 )
 frames = ExtResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/FarStars"]
 position = Vector2( -48.8618, 0 )
 frames = ExtResource( 2 )
-frame = 2
 playing = true
 centered = false
 
@@ -73,21 +77,21 @@ centered = false
 position = Vector2( -96.7815, -98.7247 )
 rotation = 1.5708
 frames = ExtResource( 2 )
-frame = 1
+frame = 2
 playing = true
 centered = false
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/FarStars"]
 position = Vector2( 31.9352, -89.5325 )
 frames = ExtResource( 2 )
-frame = 1
+frame = 2
 playing = true
 centered = false
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/FarStars"]
 position = Vector2( 6, -45.5319 )
 frames = ExtResource( 2 )
-frame = 1
+frame = 2
 playing = true
 centered = false
 
@@ -95,6 +99,7 @@ centered = false
 position = Vector2( 86.1476, 6.5 )
 rotation = 4.71239
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
 
@@ -102,6 +107,7 @@ centered = false
 position = Vector2( 43.9721, 189.043 )
 rotation = 4.71239
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
 
@@ -109,6 +115,7 @@ centered = false
 position = Vector2( 198.528, 73.9266 )
 rotation = 4.71239
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
 
@@ -116,7 +123,6 @@ centered = false
 position = Vector2( 193.176, -74.5052 )
 rotation = 4.71239
 frames = ExtResource( 5 )
-frame = 1
 playing = true
 centered = false
 
@@ -124,23 +130,27 @@ centered = false
 position = Vector2( 109.337, -67.5052 )
 rotation = 4.71239
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/FarStars"]
 position = Vector2( 98.0541, 102.9 )
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
 
 [node name="AnimatedSprite13" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/FarStars"]
 position = Vector2( 156.92, 154.036 )
 frames = ExtResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="AnimatedSprite12" type="AnimatedSprite" parent="GameWorld/ParallaxBackground/FarStars"]
 position = Vector2( -81.5162, 196.253 )
 frames = ExtResource( 2 )
+frame = 1
 playing = true
 centered = false
