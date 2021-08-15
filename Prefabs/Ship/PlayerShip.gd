@@ -35,7 +35,7 @@ func _handle_velocity(_delta: float) -> void:
 		linear_velocity += direction
 	if linear_velocity.length_squared() > max_speed*max_speed:
 		linear_velocity = linear_velocity.clamped(max_speed)
-	var vt_position = linear_velocity.normalized().tangent()
+	
 
 func _gather_input() -> void:
 	if Input.is_action_just_pressed("accelerate"):

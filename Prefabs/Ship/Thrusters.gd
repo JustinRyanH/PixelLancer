@@ -10,6 +10,13 @@ func _ready():
 	for thruster in engine_thrusters:
 		thruster.emitting = false
 
+func _process(_delta: float) -> void:
+	var dir_2d := -Vector2.UP.rotated(get_parent().rotation)
+	var dir_3d := Vector3(dir_2d.x, dir_2d.y, 0.0)
+	for thruster in engine_thrusters:
+		thruster.global_rotation = 0
+		thruster.process_material.direction = dir_3d
+
 func set_emitting(p_emitting: bool) -> void:
 	set_emitting_engines(p_emitting)
 
