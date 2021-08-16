@@ -2,7 +2,7 @@
     "title": "Kanban",
     "cols": [
         {
-            "title": "Bugs",
+            "title": "Backburner",
             "tasks": [],
             "id": "ckserjgg600053z5skto6ca9a",
             "color": "#eb144c"
@@ -13,6 +13,26 @@
                 {
                     "text": "## Do bounce tween for rotation\n\nHopefully this makes the ship feel more organic, so it that it ship rotation",
                     "id": "ckserjgg600063z5st869y1yg"
+                },
+                {
+                    "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
+                    "id": "ckserthr7000d3z5s8sgf3bz7"
+                },
+                {
+                    "text": "## Add Fuel Economy\n\nI think the interesting thing with Newtonain Space physics is how fuel economy comes into play",
+                    "id": "ckseru3yl000e3z5solu3yq5f"
+                },
+                {
+                    "text": "## Create Particles when Turning\n\nAdds more juice",
+                    "id": "ckserx5mk000h3z5sytq1utik"
+                },
+                {
+                    "text": "## Create Particles when Thrusting\nAdds more Juice",
+                    "id": "ckserxiu6000i3z5sf3vz81tq"
+                },
+                {
+                    "text": "## Create Screen Shake when moving\nAdds more juice",
+                    "id": "ckserxr78000j3z5sl3hqi6m8"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -20,7 +40,12 @@
         },
         {
             "title": "Doing",
-            "tasks": [],
+            "tasks": [
+                {
+                    "text": "## Create Four Axis Space Moment\n\nThe play moves in 4 axis of thrusters, where the ship is facing has a stronger thruster movement\n",
+                    "id": "ckseruz6z000f3z5surcabqsz"
+                }
+            ],
             "id": "ckserjgg600083z5sc6xbk4ot",
             "color": "#0693e3"
         },
@@ -33,5 +58,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629126131187
+    "timestamp": 1629126718522
 }
