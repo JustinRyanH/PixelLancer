@@ -33,6 +33,14 @@
                 {
                     "text": "## Create Screen Shake when moving\nAdds more juice",
                     "id": "ckserxr78000j3z5sl3hqi6m8"
+                },
+                {
+                    "text": "## Smooth out line\n\nI think I just need to lerp the last to the second to last point and remove when they're close enough",
+                    "id": "cksf3x7h600053z5su34hi87h"
+                },
+                {
+                    "text": "### Use Normals for the shape of the ship",
+                    "id": "cksf4jocn00063z5sfidhtm58"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -58,5 +66,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629126718522
+    "timestamp": 1629147839084
 }
