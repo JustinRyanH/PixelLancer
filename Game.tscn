@@ -9,7 +9,7 @@
 [ext_resource path="res://Sprites/effect_purple2.png" type="Texture" id=7]
 [ext_resource path="res://Prefabs/Ship/Trail.gd" type="Script" id=8]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.119914, 1 )
 colors = PoolColorArray( 1, 0.945313, 0.945313, 1, 1, 0.988235, 0.988235, 1, 1, 1, 1, 0 )
 
@@ -53,18 +53,13 @@ z_index = -1
 points = PoolVector2Array( 0, 0, 0, 90, 0, 180 )
 width = 30.0
 default_color = Color( 1, 1, 1, 1 )
-gradient = SubResource( 5 )
+gradient = SubResource( 1 )
 texture = ExtResource( 7 )
 texture_mode = 2
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource( 8 )
-
-[node name="Timer" type="Timer" parent="GameWorld/Ship/Trail"]
-wait_time = 0.2
-one_shot = true
-autostart = true
 
 [node name="Sprite" type="Sprite" parent="GameWorld/Ship"]
 material = ExtResource( 6 )
@@ -156,5 +151,3 @@ margin_bottom = 32.9998
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.819608, 0.819608, 1 )
 text = "HEALTH"
-
-[connection signal="timeout" from="GameWorld/Ship/Trail/Timer" to="GameWorld/Ship/Trail" method="_on_Timer_timeout"]
