@@ -8,6 +8,8 @@ export var max_points := 32
 export var resolution := 5.0
 export var life_time := 0.75
 
+export var is_emitting := false setget set_emitting 
+
 onready var target: Node2D = get_node_or_null(target_path)
 
 var _point_creation_time := []
@@ -19,12 +21,13 @@ func _ready():
 	
 	set_as_toplevel(true)
 	position = Vector2.ZERO
-	clear_points()
-	_point_creation_time.clear()
+	reset_lines()
 	
 func _process(delta: float) -> void:
 	_clock += delta
 	_remove_older_points()
+	if not is_emitting:
+		return
 	
 	if get_point_count() == 0:
 		add_point(_target_position(), 0)
@@ -57,3 +60,14 @@ func _remove_last_point() -> void:
 
 func _target_position() -> Vector2:
 	return to_local(target.global_position)
+
+func reset_lines() -> void:
+	clear_points()
+	_point_creation_time.clear()
+ 
+func set_emitting(p_emitting: bool) -> void:
+	if is_emitting == false and p_emitting:
+		reset_lines()
+	is_emitting = p_emitting
+	
+	
