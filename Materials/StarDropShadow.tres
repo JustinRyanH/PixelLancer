@@ -4,5 +4,3 @@
 
 [resource]
 shader = ExtResource( 1 )
-shader_param/offset = Vector2( 2, 2 )
-shader_param/modulate = Color( 0.639216, 0.639216, 0.639216, 1 )
