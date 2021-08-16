@@ -1,7 +1,11 @@
 extends RigidBody2D
 
+const PI_DIV_8 = PI / 8
+
 ## TODO: Remove
 export var movement_speed_modifier := 1
+export var rotation_speed = 1.0
+export var stop_buffer := 0.01
 var _movement: Vector2 = Vector2.ZERO
 
 onready var look_crosshair: Node2D = $LookCrossHair
@@ -13,11 +17,10 @@ func _process(delta: float) -> void:
 
 func rotate_towards_mouse(delta: float) -> void:
 	var _mouse_rotation := get_local_mouse_position().angle()
-	if abs(_mouse_rotation) < 0.5 && abs(_mouse_rotation) > 0.01:
-		_mouse_rotation = sign(_mouse_rotation)
-	elif abs(_mouse_rotation) <= 0.01:
-		_mouse_rotation = 0
-	rotate(_mouse_rotation * delta)
+	if abs(_mouse_rotation) > 1.0:
+		rotate(_mouse_rotation * rotation_speed * delta)
+	elif abs(_mouse_rotation) > stop_buffer:
+		rotate(sign(_mouse_rotation) * rotation_speed * delta)
 
 func debug_move(delta: float) -> void:
 	_movement = Vector2.ZERO
