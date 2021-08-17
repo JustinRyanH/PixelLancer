@@ -3,6 +3,7 @@ extends RigidBody2D
 const PI_DIV_8 = PI / 8
 
 export var thruster_power := 100.0
+export var max_speed := 900.0
 export var rotation_speed = 1.0
 export var stop_buffer := 0.01
 
@@ -21,9 +22,16 @@ func _process(delta: float) -> void:
 	move_input()
 
 func _physics_process(delta: float) -> void:
-	apply_central_impulse(_thrust * thruster_power *  delta)
+	if linear_velocity.length_squared() > max_speed * max_speed:
+		linear_velocity = linear_velocity.clamped(max_speed)
+		
+	if _thrust.length_squared() > 0: 
+		var direction_match := _thrust.normalized() - Vector2.RIGHT.rotated(rotation)
+		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
+		direction_multiplayer = clamp(direction_multiplayer, 0.5, 1.0)
+		apply_central_impulse(_thrust * thruster_power * direction_multiplayer * delta)
 
-func rotate_towards_mouse(delta: float) -> void:
+func rotate_towards_mouse(_delta: float) -> void:
 	var _mouse_rotation := get_local_mouse_position().angle()
 	if abs(_mouse_rotation) > 1.0:
 		angular_velocity = _mouse_rotation * rotation_speed
@@ -42,8 +50,8 @@ func move_input() -> void:
 		_thrust.y -= 1
 	if Input.is_action_pressed("thrust_down"):
 		_thrust.y += 1
-	# Normalize the Thrust so that we don't get the 
-	# the quake strife bug 
+	# Normalize the Thrust so that we don't get the
+	# the quake strife bug
 	_thrust.normalized()
 
 func update_crosshairs() -> void:

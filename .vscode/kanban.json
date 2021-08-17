@@ -48,23 +48,27 @@
         },
         {
             "title": "Doing",
-            "tasks": [
-                {
-                    "text": "## Create Four Axis Space Moment\n\nThe play moves in 4 axis of thrusters, where the ship is facing has a stronger thruster movement\n",
-                    "id": "ckseruz6z000f3z5surcabqsz"
-                }
-            ],
+            "tasks": [],
             "id": "ckserjgg600083z5sc6xbk4ot",
             "color": "#0693e3"
         },
         {
             "title": "Done",
-            "tasks": [],
+            "tasks": [
+                {
+                    "text": "## Create Four Axis Space Moment\n\nThe play moves in 4 axis of thrusters,",
+                    "id": "ckseruz6z000f3z5surcabqsz"
+                },
+                {
+                    "text": "## Create Four Axis Space Moment\n\nThruster increase in speed when moving thrusting in direction the ship is facing",
+                    "id": "cksfeh3sk00073z5spsrhp6xh"
+                }
+            ],
             "id": "ckserjgg600093z5s8qsb7ns3",
             "color": "#00d084"
         }
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629148034088
+    "timestamp": 1629228078026
 }

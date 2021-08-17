@@ -14,4 +14,4 @@ func _connect_ship(ship: RigidBody2D) -> void:
 	
 func _process(_delta:  float) -> void:
 	if _main_ship:
-		speed_value_label.text = "%2.2f" % _main_ship.linear_velocity.length() 
+		speed_value_label.text = "%2.f" % _main_ship.linear_velocity.length() 
