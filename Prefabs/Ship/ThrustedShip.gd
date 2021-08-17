@@ -6,6 +6,7 @@ export var thruster_power := 100.0
 export var max_speed := 900.0
 export var rotation_speed = 1.0
 export var stop_buffer := 0.01
+export var thrust_curve: Curve
 
 var _thrust: Vector2 = Vector2.ZERO
 var _movement: Vector2 = Vector2.ZERO
