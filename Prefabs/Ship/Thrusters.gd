@@ -1,26 +1,26 @@
 extends Node2D
+class_name Thrusters
 
-
-var emitting := false setget set_emitting
-var emitting_engines := false setget set_emitting_engines
-
-onready var engine_thrusters = $MainEngines.get_children()
-
-func _ready():
-	for thruster in engine_thrusters:
-		thruster.emitting = false
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+var emission_vector := Vector2.ZERO setget set_emission_vector
+onready var port_thruster: Particles2D = $PortThruster
+onready var starboard_thruster: Particles2D = $StarboardThruster
+onready var decel_thruster: Particles2D = $DecelThruster
+onready var main_thruster: Particles2D = $MainThruster
 
 func _process(_delta: float) -> void:
-	var dir_2d := -Vector2.UP.rotated(get_parent().rotation)
-	var dir_3d := Vector3(dir_2d.x, dir_2d.y, 0.0)
-	for thruster in engine_thrusters:
-		thruster.global_rotation = 0
-		thruster.process_material.direction = dir_3d
+	if emission_vector.length_squared() > 0:
+		port_thruster.emitting = true
+		starboard_thruster.emitting = true
+		decel_thruster.emitting = true
+		main_thruster.emitting = true
+	else:
+		port_thruster.emitting = false
+		starboard_thruster.emitting = false
+		decel_thruster.emitting = false
+		main_thruster.emitting = false
 
-func set_emitting(p_emitting: bool) -> void:
-	set_emitting_engines(p_emitting)
-
-func set_emitting_engines(p_emitting: bool) -> void:
-	emitting = p_emitting
-	for thruster in engine_thrusters:
-		thruster.emitting = p_emitting
+func set_emission_vector(vec: Vector2) -> void:
+	emission_vector = vec

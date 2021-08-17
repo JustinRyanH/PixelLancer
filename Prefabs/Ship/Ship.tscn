@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Materials/Outline.tres" type="Material" id=1]
 [ext_resource path="res://Sprites/crosshair088.png" type="Texture" id=2]
@@ -8,10 +8,31 @@
 [ext_resource path="res://Shaders/Outline.shader" type="Shader" id=6]
 [ext_resource path="res://Prefabs/Ship/Trail.gd" type="Script" id=7]
 [ext_resource path="res://Prefabs/Ship/ThrustedShip.gd" type="Script" id=8]
+[ext_resource path="res://Prefabs/Ship/Thrusters.gd" type="Script" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.546039, 0.764454, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.619608, 1, 1, 1, 0.0431373, 1, 1, 1, 0 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 25.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 20.0
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 15.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 30.0
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 6 )
@@ -46,6 +67,32 @@ script = ExtResource( 7 )
 max_points = 100
 resolution = 15.0
 life_time = 2.0
+
+[node name="Thrusters" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="PortThruster" type="Particles2D" parent="Thrusters"]
+position = Vector2( 4.4, -17 )
+emitting = false
+amount = 16
+process_material = SubResource( 4 )
+
+[node name="StarboardThruster" type="Particles2D" parent="Thrusters"]
+position = Vector2( 4.4, 17 )
+rotation = 3.14159
+emitting = false
+process_material = SubResource( 4 )
+
+[node name="DecelThruster" type="Particles2D" parent="Thrusters"]
+position = Vector2( 30, 0 )
+rotation = 1.5708
+emitting = false
+process_material = SubResource( 4 )
+
+[node name="MainThruster" type="Particles2D" parent="Thrusters"]
+position = Vector2( -27.3723, 0 )
+emitting = false
+process_material = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 1 )

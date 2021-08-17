@@ -12,6 +12,7 @@ var _thrust: Vector2 = Vector2.ZERO
 var _movement: Vector2 = Vector2.ZERO
 
 onready var look_crosshair: Node2D = $LookCrossHair
+onready var thrusters: Thrusters = $Thrusters
 
 func _ready():
 	yield(get_tree().create_timer(1.0), "timeout")
@@ -54,6 +55,7 @@ func move_input() -> void:
 	# Normalize the Thrust so that we don't get the
 	# the quake strife bug
 	_thrust.normalized()
+	thrusters.emission_vector = _thrust
 
 func update_crosshairs() -> void:
 	var _mouse_pos = get_local_mouse_position().normalized()

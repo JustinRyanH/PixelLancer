@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Thrusters",
+"language": "GDScript",
+"path": "res://Prefabs/Ship/Thrusters.gd"
+} ]
+_global_script_class_icons={
+"Thrusters": ""
+}
+
 [application]
 
 config/name="PixelLancer"
