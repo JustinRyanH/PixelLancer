@@ -3,17 +3,18 @@
     "cols": [
         {
             "title": "Backburner",
-            "tasks": [],
+            "tasks": [
+                {
+                    "text": "## Do bounce tween for rotation\n\nHopefully this makes the ship feel more organic, so it that it ship rotation",
+                    "id": "ckserjgg600063z5st869y1yg"
+                }
+            ],
             "id": "ckserjgg600053z5skto6ca9a",
             "color": "#eb144c"
         },
         {
             "title": "To-Do",
             "tasks": [
-                {
-                    "text": "## Do bounce tween for rotation\n\nHopefully this makes the ship feel more organic, so it that it ship rotation",
-                    "id": "ckserjgg600063z5st869y1yg"
-                },
                 {
                     "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
                     "id": "ckserthr7000d3z5s8sgf3bz7"
@@ -27,10 +28,6 @@
                     "id": "ckserx5mk000h3z5sytq1utik"
                 },
                 {
-                    "text": "## Create Particles when Thrusting\nAdds more Juice",
-                    "id": "ckserxiu6000i3z5sf3vz81tq"
-                },
-                {
                     "text": "## Create Screen Shake when moving\nAdds more juice",
                     "id": "ckserxr78000j3z5sl3hqi6m8"
                 },
@@ -41,6 +38,10 @@
                 {
                     "text": "## Use Normals for the shape of the ship",
                     "id": "cksf4jocn00063z5sfidhtm58"
+                },
+                {
+                    "text": "## Visualize the Thrust Multiplayer in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
+                    "id": "cksggdlrq00053z5sj9bt41i1"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -48,7 +49,12 @@
         },
         {
             "title": "Doing",
-            "tasks": [],
+            "tasks": [
+                {
+                    "text": "## Create Particles when Thrusting\nAdds more Juice",
+                    "id": "ckserxiu6000i3z5sf3vz81tq"
+                }
+            ],
             "id": "ckserjgg600083z5sc6xbk4ot",
             "color": "#0693e3"
         },
@@ -70,5 +76,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629228078026
+    "timestamp": 1629228248031
 }
