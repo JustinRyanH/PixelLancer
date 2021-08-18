@@ -16,10 +16,6 @@
             "title": "To-Do",
             "tasks": [
                 {
-                    "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
-                    "id": "ckserthr7000d3z5s8sgf3bz7"
-                },
-                {
                     "text": "## Add Fuel Economy\n\nI think the interesting thing with Newtonain Space physics is how fuel economy comes into play",
                     "id": "ckseru3yl000e3z5solu3yq5f"
                 },
@@ -40,7 +36,7 @@
                     "id": "cksf4jocn00063z5sfidhtm58"
                 },
                 {
-                    "text": "## Visualize the Thrust Multiplayer in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
+                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
                     "id": "cksggdlrq00053z5sj9bt41i1"
                 }
             ],
@@ -51,8 +47,8 @@
             "title": "Doing",
             "tasks": [
                 {
-                    "text": "## Create Particles when Thrusting\nAdds more Juice",
-                    "id": "ckserxiu6000i3z5sf3vz81tq"
+                    "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
+                    "id": "ckserthr7000d3z5s8sgf3bz7"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -68,6 +64,10 @@
                 {
                     "text": "## Create Four Axis Space Moment\n\nThruster increase in speed when moving thrusting in direction the ship is facing",
                     "id": "cksfeh3sk00073z5spsrhp6xh"
+                },
+                {
+                    "text": "## Create Particles when Thrusting\nAdds more Juice",
+                    "id": "ckserxiu6000i3z5sf3vz81tq"
                 }
             ],
             "id": "ckserjgg600093z5s8qsb7ns3",
@@ -76,5 +76,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629228248031
+    "timestamp": 1629298017222
 }

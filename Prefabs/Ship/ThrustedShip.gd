@@ -26,8 +26,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if linear_velocity.length_squared() > max_speed * max_speed:
 		linear_velocity = linear_velocity.clamped(max_speed)
-		
-	if _thrust.length_squared() > 0: 
+
+	if _thrust.length_squared() > 0:
 		var direction_match := _thrust.normalized() - Vector2.RIGHT.rotated(rotation)
 		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
 		direction_multiplayer = clamp(direction_multiplayer, 0.5, 1.0)
@@ -54,10 +54,19 @@ func move_input() -> void:
 		_thrust.y += 1
 	# Normalize the Thrust so that we don't get the
 	# the quake strife bug
-	_thrust.normalized()
-	thrusters.emission_vector = _thrust
+	_thrust = _thrust.normalized()
+	_emit_thrusters(_thrust)
 
 func update_crosshairs() -> void:
 	var _mouse_pos = get_local_mouse_position().normalized()
 	look_crosshair.position = _mouse_pos * 150.0
 	look_crosshair.rotation_degrees = rad2deg(_mouse_pos.angle()) + 90.0
+
+
+## Set Thrust Direction for Thruster Emission
+# Thrust direction is relative to the screen, but when we emit we need to
+# understand the rotation of the ship to decide which ones to turn on.
+# First we rotate the _thrust vector in  the opposite rotation  of the ship rotation
+# Then we reverse the thrust so that the thruster direction matches with the thruster
+func _emit_thrusters(thrust: Vector2) -> void:
+	thrusters.emission_vector = -(thrust).rotated(-rotation)

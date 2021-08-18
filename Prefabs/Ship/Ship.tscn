@@ -14,7 +14,7 @@
 offsets = PoolRealArray( 0, 0.546039, 0.764454, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.619608, 1, 1, 1, 0.0431373, 1, 1, 1, 0 )
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=2]
 flag_disable_z = true
 direction = Vector3( 0, -1, 0 )
 spread = 25.0
@@ -34,7 +34,7 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 30.0
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 6 )
 shader_param/line_color = Color( 0.63248, 0.5092, 0.67, 1 )
 shader_param/line_thickness = 2.0
@@ -75,19 +75,19 @@ script = ExtResource( 9 )
 position = Vector2( 4.4, -17 )
 emitting = false
 amount = 16
-process_material = SubResource( 4 )
+process_material = SubResource( 2 )
 
 [node name="StarboardThruster" type="Particles2D" parent="Thrusters"]
 position = Vector2( 4.4, 17 )
 rotation = 3.14159
 emitting = false
-process_material = SubResource( 4 )
+process_material = SubResource( 2 )
 
 [node name="DecelThruster" type="Particles2D" parent="Thrusters"]
 position = Vector2( 30, 0 )
 rotation = 1.5708
 emitting = false
-process_material = SubResource( 4 )
+process_material = SubResource( 2 )
 
 [node name="MainThruster" type="Particles2D" parent="Thrusters"]
 position = Vector2( -27.3723, 0 )
@@ -100,7 +100,7 @@ texture = ExtResource( 5 )
 
 [node name="ForwardCrossHair" type="Sprite" parent="."]
 modulate = Color( 0.952941, 0.792157, 1, 0.470588 )
-material = SubResource( 2 )
+material = SubResource( 4 )
 position = Vector2( 65, -0.53 )
 rotation = 1.5708
 scale = Vector2( 0.4, 0.4 )
@@ -108,7 +108,7 @@ texture = ExtResource( 2 )
 
 [node name="LookCrossHair" type="Sprite" parent="."]
 modulate = Color( 0.952941, 0.792157, 1, 0.470588 )
-material = SubResource( 2 )
+material = SubResource( 4 )
 position = Vector2( 151.503, 0 )
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
