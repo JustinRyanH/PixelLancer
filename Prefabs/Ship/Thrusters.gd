@@ -5,7 +5,6 @@ class_name Thrusters
 export var threshold := 0.25
 var emission_vector := Vector2.ZERO setget set_emission_vector
 var boost := false setget set_boost
-var rotation_direction := 0 setget set_rotation_direction
 onready var port_thruster: Particles2D = $PortThruster
 onready var starboard_thruster: Particles2D = $StarboardThruster
 onready var decel_thruster: Particles2D = $DecelThruster
@@ -44,16 +43,6 @@ func _turn_on_thrusters() -> void:
 		starboard_thruster.emitting = true
 	else:
 		starboard_thruster.emitting  = false
-		
-	if rotation_direction > 0:
-		$RotationPort.is_emitting = true
-		$RotationStarboard.is_emitting = false
-	elif rotation_direction < 0:
-		$RotationPort.is_emitting = false
-		$RotationStarboard.is_emitting = true
-	else:
-		$RotationStarboard.is_emitting = false
-		$RotationPort.is_emitting = false
 
 func set_emission_vector(vec: Vector2) -> void:
 	emission_vector = vec
@@ -61,6 +50,3 @@ func set_emission_vector(vec: Vector2) -> void:
 func set_boost(p_boost: bool) -> void:
 	boost = p_boost
 	trail.is_emitting = boost
-	
-func set_rotation_direction(dir: int) -> void:
-	rotation_direction = dir

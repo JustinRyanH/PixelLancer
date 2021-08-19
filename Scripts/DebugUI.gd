@@ -1,13 +1,12 @@
 extends Control
 
-signal register_main_ship
-
-
 onready var speed_value_label: Label = $SpeedValue
 var _main_ship: RigidBody2D = null
 
 func _ready():
-	Events.connect("connect_ship", self, "_connect_ship")
+	var err = Events.connect("connect_ship", self, "_connect_ship")
+	if err != OK:
+		print("Failed to Connect, `connect_ship` for %s" % self)
 
 func _connect_ship(ship: RigidBody2D) -> void:
 	_main_ship = ship

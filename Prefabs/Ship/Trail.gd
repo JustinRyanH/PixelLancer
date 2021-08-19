@@ -2,6 +2,7 @@ extends Line2D
 class_name Trail
 
 export var target_path: NodePath
+
 export var max_points := 32
 ## TODO: This resolution needs to be slightly varaible.
 # Sharp Turns create akward bends that can be fixed with higher
