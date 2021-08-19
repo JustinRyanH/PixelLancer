@@ -40,7 +40,6 @@ colors = PoolColorArray( 1.5, 1.5, 1.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.619608, 1, 1, 
 position = Vector2( 256, 256 )
 script = ExtResource( 8 )
 rotation_speed = 2.5
-stop_buffer = 0.05
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 46.4753, -0.387695, -32.3555, -48.9721, -47.7177, -32.2855, -35.269, -0.766479, -48.5123, 32.0769, -31.8258, 48.4985 )

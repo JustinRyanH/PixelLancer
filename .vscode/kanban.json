@@ -62,7 +62,7 @@
                     "id": "cksiabqjx00053z5s7w8r8q89"
                 },
                 {
-                    "text": "# Experiment\n## Implement Curve for Rotation",
+                    "text": "## Advance Rotation\n\nShip will have small adjustment rotation speed\n\nShip will have major adjustment speed that overshoots and caches up",
                     "id": "cksicuaat00073z5s21n78i6i"
                 }
             ],
@@ -99,5 +99,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629381425711
+    "timestamp": 1629404112717
 }
