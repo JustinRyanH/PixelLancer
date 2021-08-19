@@ -98,7 +98,9 @@ __meta__ = {
 environment = ExtResource( 4 )
 
 [node name="Ship" parent="GameWorld" instance=ExtResource( 1 )]
+angular_damp = 0.0
 rotation_speed = 2.0
+stop_buffer = 0.1
 thrust_curve = SubResource( 4 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="GameWorld"]

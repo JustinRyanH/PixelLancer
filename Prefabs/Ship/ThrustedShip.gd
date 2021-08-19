@@ -40,17 +40,19 @@ func _physics_process(delta: float) -> void:
 		direction_multiplayer = clamp(direction_multiplayer, 0.5, 1.0)
 		apply_central_impulse(_thrust * thruster_power * direction_multiplayer * delta)
 
-func rotate_towards_mouse(delta: float) -> void:
+func rotate_towards_mouse(_delta: float) -> void:
 	var mouse_rotation := get_local_mouse_position().angle()
 	var target_dist = abs(mouse_rotation / PI)
 	print(target_dist)
+	
 	if target_dist < stop_buffer:
-		print("NO ADJUSTMENT")
-	elif target_dist < 0.25:
-		print("MINER ADJUSTMENT")
+		print("FOO")
+		thrusters.rotation_direction = 0
+		angular_velocity = lerp(angular_velocity, 0, 0.999)
 	else:
-		print("MAJOR ADJUSTMENT")
-
+		angular_velocity = sign(mouse_rotation) * rotation_speed
+		thrusters.rotation_direction = int(sign(mouse_rotation))
+		
 func move_input() -> void:
 	_thrust = Vector2.ZERO
 	if Input.is_action_pressed("thrust_up"):
