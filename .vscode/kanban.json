@@ -62,10 +62,6 @@
                     "id": "cksiabqjx00053z5s7w8r8q89"
                 },
                 {
-                    "text": "# Experiment\n## Thrusters takes orientation in account",
-                    "id": "cksictyhj00063z5sckgvflo7"
-                },
-                {
                     "text": "# Experiment\n## Implement Curve for Rotation",
                     "id": "cksicuaat00073z5s21n78i6i"
                 }
@@ -91,6 +87,10 @@
                 {
                     "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
                     "id": "ckserthr7000d3z5s8sgf3bz7"
+                },
+                {
+                    "text": "# Experiment\n## Thrusters takes orientation in account",
+                    "id": "cksictyhj00063z5sckgvflo7"
                 }
             ],
             "id": "ckserjgg600093z5s8qsb7ns3",
@@ -99,5 +99,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629343159001
+    "timestamp": 1629381425711
 }

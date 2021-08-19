@@ -59,7 +59,7 @@ func move_input() -> void:
 	_boost = Input.is_action_pressed("boost")
 	# Normalize the Thrust so that we don't get the
 	# the quake strife bug
-	_thrust = _thrust.normalized()
+	_thrust = _thrust.normalized().rotated(-rotation)
 	_emit_thrusters(_thrust)
 
 func update_crosshairs() -> void:
@@ -74,5 +74,5 @@ func update_crosshairs() -> void:
 # First we rotate the _thrust vector in  the opposite rotation  of the ship rotation
 # Then we reverse the thrust so that the thruster direction matches with the thruster
 func _emit_thrusters(thrust: Vector2) -> void:
-	thrusters.emission_vector = -(thrust).rotated(-rotation)
+	thrusters.emission_vector = -thrust
 	thrusters.boost = _boost
