@@ -9,6 +9,7 @@ onready var port_thruster: Particles2D = $PortThruster
 onready var starboard_thruster: Particles2D = $StarboardThruster
 onready var decel_thruster: Particles2D = $DecelThruster
 onready var main_thruster: Particles2D = $MainThruster
+onready var trail: Trail = $Trail
 
 func _process(_delta: float) -> void:
 	_turn_on_thrusters()
@@ -45,3 +46,4 @@ func set_emission_vector(vec: Vector2) -> void:
 
 func set_boost(p_boost: bool) -> void:
 	boost = p_boost
+	trail.is_emitting = boost

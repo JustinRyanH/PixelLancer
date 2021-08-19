@@ -70,7 +70,6 @@ func set_emitting(p_emitting: bool) -> void:
 	if is_emitting == false and p_emitting:
 		reset_lines()
 	if is_emitting == true and not p_emitting:
-		print(_point_creation_time)
 		for i in _point_creation_time.size():
 			_point_creation_time[i] -= life_time / 2.0
 	is_emitting = p_emitting

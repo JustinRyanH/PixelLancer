@@ -14,7 +14,6 @@ var _movement: Vector2 = Vector2.ZERO
 
 onready var look_crosshair: Node2D = $LookCrossHair
 onready var thrusters: Thrusters = $Thrusters
-onready var trail: Trail = $Trail
 
 func _ready():
 	yield(get_tree().create_timer(1.0), "timeout")
@@ -77,4 +76,3 @@ func update_crosshairs() -> void:
 func _emit_thrusters(thrust: Vector2) -> void:
 	thrusters.emission_vector = -(thrust).rotated(-rotation)
 	thrusters.boost = _boost
-	trail.is_emitting = _boost
