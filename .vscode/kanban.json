@@ -58,8 +58,8 @@
             "title": "Doing",
             "tasks": [
                 {
-                    "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
-                    "id": "ckserthr7000d3z5s8sgf3bz7"
+                    "text": "## Add Boost Fuel\nRight now Boost is over powered. It's fun at the moment, but there needs to be some sort of fuel",
+                    "id": "cksiabqjx00053z5s7w8r8q89"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -79,6 +79,10 @@
                 {
                     "text": "## Create Particles when Thrusting\nAdds more Juice",
                     "id": "ckserxiu6000i3z5sf3vz81tq"
+                },
+                {
+                    "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
+                    "id": "ckserthr7000d3z5s8sgf3bz7"
                 }
             ],
             "id": "ckserjgg600093z5s8qsb7ns3",
@@ -87,5 +91,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629298264735
+    "timestamp": 1629338953990
 }

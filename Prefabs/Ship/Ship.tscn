@@ -64,7 +64,7 @@ end_cap_mode = 2
 script = ExtResource( 7 )
 max_points = 100
 resolution = 15.0
-life_time = 2.0
+life_time = 1.0
 
 [node name="Thrusters" type="Node2D" parent="."]
 script = ExtResource( 9 )

@@ -4,6 +4,7 @@ class_name Thrusters
 # What is the threadshold for vector to be facing so the Thruster engages
 export var threshold := 0.25
 var emission_vector := Vector2.ZERO setget set_emission_vector
+var boost := false setget set_boost
 onready var port_thruster: Particles2D = $PortThruster
 onready var starboard_thruster: Particles2D = $StarboardThruster
 onready var decel_thruster: Particles2D = $DecelThruster
@@ -20,14 +21,16 @@ func _process(_delta: float) -> void:
 # the threadshold for that setup. However, that is not needed until we
 # have more than 4 thrusters
 func _turn_on_thrusters() -> void:
+	if emission_vector.x < -threshold:
+		main_thruster.emitting = true
+	elif boost:
+		main_thruster.emitting = true
+	else:
+		main_thruster.emitting  = false
 	if emission_vector.x > threshold:
 		decel_thruster.emitting = true
 	else:
 		decel_thruster.emitting  = false
-	if emission_vector.x < -threshold:
-		main_thruster.emitting = true
-	else:
-		main_thruster.emitting  = false
 	if emission_vector.y < -threshold:
 		port_thruster.emitting = true
 	else:
@@ -39,3 +42,6 @@ func _turn_on_thrusters() -> void:
 
 func set_emission_vector(vec: Vector2) -> void:
 	emission_vector = vec
+
+func set_boost(p_boost: bool) -> void:
+	boost = p_boost

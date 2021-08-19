@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Thrusters",
 "language": "GDScript",
 "path": "res://Prefabs/Ship/Thrusters.gd"
+}, {
+"base": "Line2D",
+"class": "Trail",
+"language": "GDScript",
+"path": "res://Prefabs/Ship/Trail.gd"
 } ]
 _global_script_class_icons={
-"Thrusters": ""
+"Thrusters": "",
+"Trail": ""
 }
 
 [application]
@@ -74,6 +80,11 @@ thrust_up={
 thrust_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+boost={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -8,11 +8,13 @@ export var rotation_speed = 1.0
 export var stop_buffer := 0.01
 export var thrust_curve: Curve
 
+var _boost: bool = false
 var _thrust: Vector2 = Vector2.ZERO
 var _movement: Vector2 = Vector2.ZERO
 
 onready var look_crosshair: Node2D = $LookCrossHair
 onready var thrusters: Thrusters = $Thrusters
+onready var trail: Trail = $Trail
 
 func _ready():
 	yield(get_tree().create_timer(1.0), "timeout")
@@ -26,7 +28,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if linear_velocity.length_squared() > max_speed * max_speed:
 		linear_velocity = linear_velocity.clamped(max_speed)
-
+	
+	if _boost:
+		apply_central_impulse(Vector2.RIGHT.rotated(rotation) * (max_speed * 0.5) * delta)
+	
 	if _thrust.length_squared() > 0:
 		var direction_match := _thrust.normalized() - Vector2.RIGHT.rotated(rotation)
 		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
@@ -52,6 +57,7 @@ func move_input() -> void:
 		_thrust.y -= 1
 	if Input.is_action_pressed("thrust_down"):
 		_thrust.y += 1
+	_boost = Input.is_action_pressed("boost")
 	# Normalize the Thrust so that we don't get the
 	# the quake strife bug
 	_thrust = _thrust.normalized()
@@ -70,3 +76,5 @@ func update_crosshairs() -> void:
 # Then we reverse the thrust so that the thruster direction matches with the thruster
 func _emit_thrusters(thrust: Vector2) -> void:
 	thrusters.emission_vector = -(thrust).rotated(-rotation)
+	thrusters.boost = _boost
+	trail.is_emitting = _boost
