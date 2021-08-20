@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "RotationThruster",
+"language": "GDScript",
+"path": "res://Prefabs/Ship/Rotation.gd"
+}, {
+"base": "Node2D",
 "class": "Thrusters",
 "language": "GDScript",
 "path": "res://Prefabs/Ship/Thrusters.gd"
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Prefabs/Ship/Trail.gd"
 } ]
 _global_script_class_icons={
+"RotationThruster": "",
 "Thrusters": "",
 "Trail": ""
 }

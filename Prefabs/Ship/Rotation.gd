@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name RotationThruster
 
 export var is_emitting := false setget set_emitting
 onready var children = get_children()
