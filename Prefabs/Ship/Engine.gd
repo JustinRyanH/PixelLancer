@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 
 	if _boost:
 		parent.apply_central_impulse(
-			Vector2.RIGHT.rotated(parent.rotation) * (max_speed * 0.5) * delta)
+			Vector2.RIGHT.rotated(parent.rotation) * max_speed * delta)
 
 	if _thrust.length_squared() > 0:
 		var direction_match := _thrust.normalized() - Vector2.RIGHT.rotated(parent.rotation)
