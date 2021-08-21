@@ -5,7 +5,7 @@
             "title": "Cursed 🧠",
             "tasks": [
                 {
-                    "text": "## What if... Thrusters\n\nWhat if the Thrusters were nodes, and they communicated the applied_force to  object they are attached to. This would allow for future configuration. \n\n\nThis is something I try once I get something resembling a game done",
+                    "text": "## What if... Thrusters\n\nWhat if the Thrusters were nodes, and they communicated the applied_force to  object they are attached to. This would allow for future configuration. \n\n\nThis is something I try once I get something resembling a game done\n\n### 8-20-2021\n\nI totally ended up refactoring to something close where I create a engine node",
                     "id": "ckshm1h0o00053z5s4vibcwvq"
                 }
             ],
@@ -16,8 +16,12 @@
             "title": "Backburner",
             "tasks": [
                 {
-                    "text": "## Do bounce tween for rotation\n\nHopefully this makes the ship feel more organic, so it that it ship rotation",
-                    "id": "ckserjgg600063z5st869y1yg"
+                    "text": "# Fix\n### Don't reverse rotation \nIf I switch to the other side of the axis. Just keep going\n",
+                    "id": "ckskydsco00053z5syp1nrgx8"
+                },
+                {
+                    "text": "# Design\n## Rotation Reverses before it gets to the deadzone\n\nLogically the ship would start restisting change before it gets to the dead zone. I think this will improve the feel",
+                    "id": "ckskyotct00063z5sy2q90j9z"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -56,10 +60,6 @@
                 {
                     "text": "## Add Boost Fuel\nRight now Boost is over powered. It's fun at the moment, but there needs to be some sort of fuel",
                     "id": "cksiabqjx00053z5s7w8r8q89"
-                },
-                {
-                    "text": "## Advance Rotation\n\nShip will have small adjustment rotation speed\n\nShip will have major adjustment speed that overshoots and caches up",
-                    "id": "cksicuaat00073z5s21n78i6i"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -81,8 +81,16 @@
                     "id": "ckserxiu6000i3z5sf3vz81tq"
                 },
                 {
+                    "text": "## Advance Rotation\n\nShip will have small adjustment rotation speed\n\nShip will have major adjustment speed that overshoots and caches up",
+                    "id": "cksicuaat00073z5s21n78i6i"
+                },
+                {
                     "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
                     "id": "ckserthr7000d3z5s8sgf3bz7"
+                },
+                {
+                    "text": "## Do bounce tween for rotation\n\nHopefully this makes the ship feel more organic, so it that it ship rotation",
+                    "id": "ckserjgg600063z5st869y1yg"
                 },
                 {
                     "text": "## Create Particles when Turning\n\nAdds more juice",
@@ -99,5 +107,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629411323247
+    "timestamp": 1629501173943
 }
