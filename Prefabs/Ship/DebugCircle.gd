@@ -1,64 +1,61 @@
+tool
 extends Node2D
-
-enum State { IDLE, REDRAW }
 
 export var radius := 1.0 setget set_radius
 export var dead_zone := 0.2 setget set_dead_zone
+export var adjustment_zone := 0.4 setget set_adjustment_zone
+onready var dead_zone_node = $Deadzone
+onready var adjustment_zone_node = $AdjustmentZone
+onready var fill_node = $Fill
+onready var edge_node = $Edge
 
-var _state: int = State.IDLE
-var _dead_zone_lines: Array
+func set_radius(v: float) -> void:
+	radius = v
+	_redraw()
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func set_dead_zone(v: float) -> void:
+	dead_zone = v
+	_redraw()
 
+func set_adjustment_zone(v: float) -> void:
+	adjustment_zone = v
+	_redraw()
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	_state = State.REDRAW
+func _redraw():
+	if not dead_zone_node:
+		dead_zone_node = get_node_or_null("Deadzone")
+	if not adjustment_zone_node:
+		adjustment_zone_node = get_node_or_null("AdjustmentZone")
 
-func _process(_delta: float) -> void:
-	if not visible:
-		_state = State.IDLE
-	if _state == State.REDRAW:
-		re_draw()
-		_state = State.IDLE
-		
-func re_draw() -> void:
-	_redraw_dead_zone_lines()
+	if dead_zone_node:
+		_redraw_bounding_lines(dead_zone_node, dead_zone)
+	if adjustment_zone_node:
+		_redraw_bounding_lines(adjustment_zone_node, adjustment_zone)
 	_redraw_debug_bg_circle()
 
-func _redraw_dead_zone_lines() -> void:
+func _redraw_bounding_lines(node, bounds) -> void:
 	var i = -1
-	for dz in $Deadzone.get_children():
+	for dz in node.get_children():
 		if dz is Line2D:
 			dz.clear_points()
 			dz.add_point(Vector2.ZERO)
-			dz.add_point(Vector2.RIGHT.rotated(dead_zone * i) * radius)
+			dz.add_point(Vector2.RIGHT.rotated(bounds * i) * radius)
 			i *= -1
-		if dz is Label:
-			print(dz)
-		
-
-func set_radius(value: float) -> void:
-	radius = value
-	_state = State.REDRAW
-	
-func set_dead_zone(value: float) -> void:
-	dead_zone = value
-	_state = State.REDRAW
 
 func _redraw_debug_bg_circle() -> void:
-	var edge = $Edge
-	var fill = $Fill
-	fill.polygons.clear()
+	edge_node = get_node_or_null("Edge")
+	fill_node = get_node_or_null("Fill")
+	if not (edge_node and fill_node):
+		return
+	fill_node.polygons.clear()
 	var points = PoolVector2Array()
-	edge.clear_points()
+	edge_node.clear_points()
 	for i in range(360):
 		if i % 4 != 0:
 			continue
 		var point = Vector2.UP.rotated(deg2rad(i)) * radius
-		edge.add_point(point)
+		edge_node.add_point(point)
 		points.append(point)
-	fill.set_polygon(points)
-	edge.add_point(Vector2.UP.rotated(deg2rad(0.5)) * radius)
+	fill_node.set_polygon(points)
+	edge_node.add_point(Vector2.UP.rotated(deg2rad(0.5)) * radius)
