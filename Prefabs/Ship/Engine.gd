@@ -4,6 +4,7 @@ onready var parent: ThrustedShip = get_parent()
 
 const PI_DIV_8 = PI / 8
 
+export var boost_multiplayer := 4.0
 export var thruster_power := 100.0
 export var max_speed := 900.0
 export var thrust_curve: Curve
@@ -22,9 +23,9 @@ func _physics_process(delta: float) -> void:
 	if parent.fuel <= 0:
 		return
 	if _boost:
-		reduce_fuel(delta * max_speed * 0.25)
+		reduce_fuel(delta * thruster_power)
 		parent.apply_central_impulse(
-			Vector2.RIGHT.rotated(parent.rotation) * max_speed * delta)
+			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost_multiplayer * delta)
 	if _thrust.length_squared() > 0:
 		var direction_match := _thrust.normalized() - Vector2.RIGHT.rotated(parent.rotation)
 		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
