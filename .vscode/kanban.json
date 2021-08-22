@@ -30,6 +30,10 @@
                 {
                     "text": "## Damping increases if accelerating\n\nI think if the ship is accelerating it will be harder to turn, and turns will stablize faster. I think this would be a decent gamepla",
                     "id": "cksmnkbh800053z5s34pmj16d"
+                },
+                {
+                    "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
+                    "id": "cksnprb0q00053z5sx017yzzg"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -119,5 +123,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629665295928
+    "timestamp": 1629667216218
 }
