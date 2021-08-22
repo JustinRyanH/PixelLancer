@@ -39,8 +39,8 @@
             "title": "To-Do",
             "tasks": [
                 {
-                    "text": "## Add Fuel Economy\n\nI think the interesting thing with Newtonain Space physics is how fuel economy comes into play",
-                    "id": "ckseru3yl000e3z5solu3yq5f"
+                    "text": "## Add Boost Fuel\nRight now Boost is over powered. It's fun at the moment, but there needs to be some sort of fuel",
+                    "id": "cksiabqjx00053z5s7w8r8q89"
                 },
                 {
                     "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
@@ -66,8 +66,8 @@
             "title": "Doing",
             "tasks": [
                 {
-                    "text": "## Add Boost Fuel\nRight now Boost is over powered. It's fun at the moment, but there needs to be some sort of fuel",
-                    "id": "cksiabqjx00053z5s7w8r8q89"
+                    "text": "## Add Fuel Economy\n\nI think the interesting thing with Newtonain Space physics is how fuel economy comes into play",
+                    "id": "ckseru3yl000e3z5solu3yq5f"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -119,5 +119,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629603053804
+    "timestamp": 1629665295928
 }
