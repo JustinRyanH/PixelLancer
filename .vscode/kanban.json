@@ -26,6 +26,10 @@
                 {
                     "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
                     "id": "cksmnh4aj00083z5s62id53xg"
+                },
+                {
+                    "text": "## Damping increases if accelerating\n\nI think if the ship is accelerating it will be harder to turn, and turns will stablize faster. I think this would be a decent gamepla",
+                    "id": "cksmnkbh800053z5s34pmj16d"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -115,5 +119,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629602900538
+    "timestamp": 1629603053804
 }
