@@ -66,7 +66,8 @@ func rotate_towards_mouse() -> void:
 		if abs(parent.angular_velocity) > 1.25:
 			_thrust(-1 * _target_angle_sign, 1.0)
 		else:
-			_thrust(_target_angle_sign, 0.75)
+			var counter_force = clamp(parent.angular_velocity, 0.2, 1.0)
+			_thrust(_target_angle_sign, counter_force)
 	else:
 		_thrust(_target_angle_sign, 1.0)
 

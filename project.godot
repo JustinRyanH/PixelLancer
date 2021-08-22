@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Prefabs/Ship/ShipRotator.gd"
 }, {
+"base": "RigidBody2D",
+"class": "ThrustedShip",
+"language": "GDScript",
+"path": "res://Prefabs/Ship/ThrustedShip.gd"
+}, {
 "base": "Node2D",
 "class": "Thrusters",
 "language": "GDScript",
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "RotationThruster": "",
 "ShipRotator": "",
+"ThrustedShip": "",
 "Thrusters": "",
 "Trail": ""
 }

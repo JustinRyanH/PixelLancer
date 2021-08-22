@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var parent: RigidBody2D = get_parent()
+onready var parent: ThrustedShip = get_parent()
 
 const PI_DIV_8 = PI / 8
 
@@ -21,12 +21,14 @@ func _physics_process(delta: float) -> void:
 		parent.linear_velocity = parent.linear_velocity.clamped(max_speed)
 
 	if _boost:
+		parent.fuel -= delta * (max_speed * .25)
 		parent.apply_central_impulse(
 			Vector2.RIGHT.rotated(parent.rotation) * max_speed * delta)
 	if _thrust.length_squared() > 0:
 		var direction_match := _thrust.normalized() - Vector2.RIGHT.rotated(parent.rotation)
 		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
 		direction_multiplayer = clamp(direction_multiplayer, 0.5, 1.0)
+		parent.fuel -= delta
 		parent.apply_central_impulse(_thrust * thruster_power * direction_multiplayer * delta)
 
 func move_input() -> void:
