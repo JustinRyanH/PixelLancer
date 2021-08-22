@@ -20,8 +20,12 @@
                     "id": "ckskydsco00053z5syp1nrgx8"
                 },
                 {
-                    "text": "# Design\n## Rotation Reverses before it gets to the deadzone\n\nLogically the ship would start restisting change before it gets to the dead zone. I think this will improve the feel",
-                    "id": "ckskyotct00063z5sy2q90j9z"
+                    "text": "## Smooth out line\n\nI think I just need to lerp the last to the second to last point and remove when they're close enough",
+                    "id": "cksf3x7h600053z5su34hi87h"
+                },
+                {
+                    "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
+                    "id": "cksmnh4aj00083z5s62id53xg"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -35,20 +39,20 @@
                     "id": "ckseru3yl000e3z5solu3yq5f"
                 },
                 {
-                    "text": "## Create Screen Shake when moving\nAdds more juice",
-                    "id": "ckserxr78000j3z5sl3hqi6m8"
-                },
-                {
-                    "text": "## Smooth out line\n\nI think I just need to lerp the last to the second to last point and remove when they're close enough",
-                    "id": "cksf3x7h600053z5su34hi87h"
-                },
-                {
-                    "text": "## Use Normals for the shape of the ship",
-                    "id": "cksf4jocn00063z5sfidhtm58"
-                },
-                {
                     "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
                     "id": "cksggdlrq00053z5sj9bt41i1"
+                },
+                {
+                    "text": "## Rotate to Found Velocity\n\nPress a Key to Rotate the ship to counter velocity",
+                    "id": "cksmnbdoe00063z5srdjitdir"
+                },
+                {
+                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
+                    "id": "cksmneyjz00073z5shm9yn1jv"
+                },
+                {
+                    "text": "## Create Screen Shake when moving\nAdds more juice",
+                    "id": "ckserxr78000j3z5sl3hqi6m8"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -89,6 +93,10 @@
                     "id": "ckserthr7000d3z5s8sgf3bz7"
                 },
                 {
+                    "text": "# Design\n## Rotation Reverses before it gets to the deadzone\n\nLogically the ship would start restisting change before it gets to the dead zone. I think this will improve the feel",
+                    "id": "ckskyotct00063z5sy2q90j9z"
+                },
+                {
                     "text": "## Do bounce tween for rotation\n\nHopefully this makes the ship feel more organic, so it that it ship rotation",
                     "id": "ckserjgg600063z5st869y1yg"
                 },
@@ -107,5 +115,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629501173943
+    "timestamp": 1629602900538
 }

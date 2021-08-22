@@ -51,7 +51,7 @@ thruster_power = 150.0
 script = ExtResource( 2 )
 
 [node name="Thruster1" type="Particles2D" parent="RotationStarboard"]
-modulate = Color( 0.894118, 0.835294, 0.901961, 0.772549 )
+modulate = Color( 0.894118, 0.835294, 0.901961, 0.278431 )
 position = Vector2( -27, -40.2973 )
 rotation = 2.00713
 emitting = false
@@ -61,7 +61,7 @@ visibility_rect = Rect2( -15, -15, 30, 30 )
 process_material = ExtResource( 6 )
 
 [node name="Thruster2" type="Particles2D" parent="RotationStarboard"]
-modulate = Color( 0.894118, 0.835294, 0.901961, 0.772549 )
+modulate = Color( 0.894118, 0.835294, 0.901961, 0.278431 )
 position = Vector2( 35, 6 )
 rotation = -2.0944
 emitting = false
@@ -74,7 +74,7 @@ process_material = ExtResource( 6 )
 script = ExtResource( 2 )
 
 [node name="Thruster1" type="Particles2D" parent="RotationPort"]
-modulate = Color( 0.894118, 0.835294, 0.901961, 0.772549 )
+modulate = Color( 0.894118, 0.835294, 0.901961, 0.278431 )
 position = Vector2( -27, 40 )
 rotation = -2.00713
 emitting = false
@@ -84,7 +84,7 @@ visibility_rect = Rect2( -15, -15, 30, 30 )
 process_material = ExtResource( 6 )
 
 [node name="Thruster2" type="Particles2D" parent="RotationPort"]
-modulate = Color( 0.894118, 0.835294, 0.901961, 0.772549 )
+modulate = Color( 0.894118, 0.835294, 0.901961, 0.278431 )
 position = Vector2( 35, -6 )
 rotation = 2.0944
 emitting = false
