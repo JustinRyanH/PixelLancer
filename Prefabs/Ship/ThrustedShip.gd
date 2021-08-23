@@ -39,6 +39,5 @@ func _update_fuel(v: float) -> void:
 	fuel = v
 
 func _on_FuelRechargeTimer_timeout():
-	print("PEW")
 	refuel_tween.interpolate_method(self, "_update_fuel", fuel, max_fuel, 1.0)
 	refuel_tween.start()
