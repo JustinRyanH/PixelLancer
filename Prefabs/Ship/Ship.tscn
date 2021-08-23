@@ -43,7 +43,7 @@ colors = PoolColorArray( 1.5, 1.5, 1.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.619608, 1, 1, 
 
 [node name="Ship" type="RigidBody2D"]
 position = Vector2( 256, 256 )
-angular_damp = 0.0
+angular_damp = 1.0
 script = ExtResource( 8 )
 thruster_power = 150.0
 
@@ -95,7 +95,8 @@ process_material = ExtResource( 6 )
 
 [node name="ShipRotator" type="Node2D" parent="."]
 script = ExtResource( 1 )
-adjustment_zone = 0.75
+rotation_multiplayer = 8.0
+max_angular_velocity = 4.0
 
 [node name="DebugCircle" type="Node2D" parent="ShipRotator"]
 script = ExtResource( 14 )
@@ -103,7 +104,7 @@ __meta__ = {
 "_editor_description_": "	"
 }
 radius = 500.0
-adjustment_zone = 0.75
+adjustment_zone = 0.5
 
 [node name="Fill" type="Polygon2D" parent="ShipRotator/DebugCircle"]
 position = Vector2( -0.374573, -3.37115 )
@@ -131,14 +132,25 @@ width = 5.0
 [node name="AdjustmentZone" type="Node2D" parent="ShipRotator/DebugCircle"]
 
 [node name="Clockwise" type="Line2D" parent="ShipRotator/DebugCircle/AdjustmentZone"]
-points = PoolVector2Array( 0, 0, 365.844, -340.819 )
+points = PoolVector2Array( 0, 0, 438.791, -239.713 )
 default_color = Color( 0.533333, 0.756863, 0.419608, 1 )
 
 [node name="CounterClockwise" type="Line2D" parent="ShipRotator/DebugCircle/AdjustmentZone"]
-points = PoolVector2Array( 0, 0, 365.844, 340.819 )
+points = PoolVector2Array( 0, 0, 438.791, 239.713 )
 default_color = Color( 0.533333, 0.756863, 0.419608, 1 )
 
+[node name="OvershootZone" type="Node2D" parent="ShipRotator/DebugCircle"]
+
+[node name="Clockwise" type="Line2D" parent="ShipRotator/DebugCircle/OvershootZone"]
+points = PoolVector2Array( 0, 0, -2.18557e-05, -500 )
+default_color = Color( 1, 0.960784, 0.341176, 0.470588 )
+
+[node name="CounterClockwise" type="Line2D" parent="ShipRotator/DebugCircle/OvershootZone"]
+points = PoolVector2Array( 0, 0, -2.18557e-05, 500 )
+default_color = Color( 1, 0.960784, 0.341176, 0.470588 )
+
 [node name="TargetAngle" type="Line2D" parent="ShipRotator/DebugCircle"]
+points = PoolVector2Array( 0, 0, 500, 0 )
 width = 5.0
 default_color = Color( 1, 0.521569, 0.521569, 1 )
 
