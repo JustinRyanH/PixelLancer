@@ -5,9 +5,11 @@ class_name DebugAngleCircle
 export var radius := 1.0 setget set_radius
 export var dead_zone := 0.2 setget set_dead_zone
 export var adjustment_zone := 0.4 setget set_adjustment_zone
+export var overshoot_zone := PI / 2 setget set_overshoot_zone
 export var target_angle := 0.0 setget set_target_angle
 onready var dead_zone_node := $Deadzone
 onready var adjustment_zone_node := $AdjustmentZone
+onready var overshoot_zone_node := $OvershootZone
 onready var target_angle_node := $TargetAngle
 onready var fill_node := $Fill
 onready var edge_node := $Edge
@@ -27,18 +29,26 @@ func set_adjustment_zone(v: float) -> void:
 func set_target_angle(v: float) -> void:
 	target_angle = v
 	_redraw()
-
+	
+func set_overshoot_zone(v: float) -> void:
+	overshoot_zone = v
+	_redraw()
+	
 # Called when the node enters the scene tree for the first time.
 func _redraw():
 	if not dead_zone_node:
 		dead_zone_node = get_node_or_null("Deadzone")
 	if not adjustment_zone_node:
 		adjustment_zone_node = get_node_or_null("AdjustmentZone")
-
+	if not overshoot_zone_node:
+		overshoot_zone_node = get_node_or_null("OvershootZone")
+		
 	if dead_zone_node:
 		_redraw_bounding_lines(dead_zone_node, dead_zone)
 	if adjustment_zone_node:
 		_redraw_bounding_lines(adjustment_zone_node, adjustment_zone)
+	if overshoot_zone_node:
+		_redraw_bounding_lines(overshoot_zone_node, overshoot_zone)
 	if target_angle_node:
 		target_angle_node.clear_points()
 		target_angle_node.add_point(Vector2.ZERO)
