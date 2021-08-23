@@ -2,10 +2,11 @@ extends Control
 
 onready var fuel_progress_bar: ProgressBar = $FuelBar
 onready var speed_value_label: Label = $SpeedValue
+onready var target_angle_label: Label = $RotationSection/TargetAngle/Value
+onready var actual_angle_label: Label = $RotationSection/ActualAngle/Value
 onready var angular_velocity_label: Label = $RotationSection/AngularVelocity/Value
 onready var angular_damping_label: Label = $RotationSection/AngularDamping/Value
 onready var angular_damping_slider: HSlider = $RotationSection/AngularDamping/HSlider
-onready var rotation_state_label: Label = $RotationSection/RotationState/State
 var _main_ship: ThrustedShip = null
 
 func _ready():
@@ -27,13 +28,11 @@ func update_main_ship() -> void:
 	angular_velocity_label.text = "%2.2f" % _main_ship.angular_velocity
 	angular_damping_label.text = "%2.2f" % _main_ship.angular_damp
 	angular_damping_slider.value = _main_ship.angular_damp
+	actual_angle_label.text = "%2.4f" % _main_ship.rotation
 	fuel_progress_bar.value = _main_ship.fuel
-	update_rotation_state()
-
-func update_rotation_state() -> void:
 	var rotator: ShipRotatorV2 = _main_ship.get_node("ShipRotator")
-	var index = rotator._rotation_state
-	rotation_state_label.text = rotator.RotationState.keys()[index]
+	if rotator:
+		target_angle_label.text = "%2.4f" % rotator._target_angle
 
 func _on_damping_changed(value):
 	if _main_ship:
