@@ -52,7 +52,7 @@ func move_input() -> void:
 		_emit_thrusters(_thrust)
 	else:
 		_emit_thrusters(Vector2.ZERO)
-		
+
 	_thrust = _thrust.rotated(parent.rotation)
 
 ## Set Thrust Direction for Thruster Emission
@@ -63,6 +63,6 @@ func move_input() -> void:
 func _emit_thrusters(thrust: Vector2) -> void:
 	thrusters.emission_vector = -thrust
 	thrusters.boost = _boost
-	
+
 func reduce_fuel(amount: float) -> void:
 	parent.fuel = max(parent.fuel - amount, 0.0)

@@ -9,6 +9,7 @@ const ANGULAR_VELOCITY_DEAD_ZONE := 0.1
 export var dead_zone := 0.2
 export var adjustment_zone := 1.0
 export var rotation_speed := 75.0
+export var max_rotation_speed := 8.0
 var rotation_dir: int = RotationDirection.NONE setget set_rotation_dir
 
 onready var parent: RigidBody2D = get_parent()
@@ -43,7 +44,8 @@ func _ready():
 func _process(_delta: float) -> void:
 	set_target_angle(get_local_mouse_position().angle())
 	_adjusted_dead_zone = _adjust_dead_zone(get_local_mouse_position().length())
-	rotate_towards_mouse()
+	if abs(parent.angular_velocity) <= max_rotation_speed:
+		rotate_towards_mouse()
 
 	_update_debug()
 
