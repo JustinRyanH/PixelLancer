@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "ShipRotator",
 "language": "GDScript",
-"path": "res://Prefabs/Ship/ShipRotator.gd"
+"path": "res://Prefabs/Ship/ShipRotatorV2.gd"
 }, {
 "base": "RigidBody2D",
 "class": "ThrustedShip",

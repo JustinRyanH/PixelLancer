@@ -1,5 +1,6 @@
 [gd_scene load_steps=20 format=2]
 
+[ext_resource path="res://Prefabs/Ship/ShipRotatorV2.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Ship/Rotation.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/crosshair102.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/effect_purple2.png" type="Texture" id=4]
@@ -11,7 +12,6 @@
 [ext_resource path="res://Sprites/trace_07_rotated.png" type="Texture" id=10]
 [ext_resource path="res://Prefabs/Ship/SmallThrusterParticles.tres" type="Material" id=11]
 [ext_resource path="res://Prefabs/Ship/Engine.gd" type="Script" id=12]
-[ext_resource path="res://Prefabs/Ship/ShipRotator.gd" type="Script" id=13]
 [ext_resource path="res://Prefabs/Ship/DebugCircle.gd" type="Script" id=14]
 
 [sub_resource type="Gradient" id=1]
@@ -94,10 +94,7 @@ visibility_rect = Rect2( -15, -15, 30, 30 )
 process_material = ExtResource( 6 )
 
 [node name="ShipRotator" type="Node2D" parent="."]
-script = ExtResource( 13 )
-dead_zone = 0.3
-adjustment_zone = 1.2
-rotation_speed = 350.0
+script = ExtResource( 1 )
 
 [node name="DebugCircle" type="Node2D" parent="ShipRotator"]
 script = ExtResource( 14 )
