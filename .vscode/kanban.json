@@ -34,6 +34,10 @@
                 {
                     "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
                     "id": "cksnprb0q00053z5sx017yzzg"
+                },
+                {
+                    "text": "## Thruster Reducation shows up in particles\n\nParticle Reduction shows up\n",
+                    "id": "cksp2pmvr00053z5szuw0j7u0"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -122,5 +126,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629728558103
+    "timestamp": 1629749418226
 }
