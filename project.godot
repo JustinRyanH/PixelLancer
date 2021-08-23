@@ -10,12 +10,22 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "DebugAngleCircle",
+"language": "GDScript",
+"path": "res://Prefabs/Ship/DebugCircle.gd"
+}, {
+"base": "Node2D",
 "class": "RotationThruster",
 "language": "GDScript",
 "path": "res://Prefabs/Ship/Rotation.gd"
 }, {
 "base": "Node2D",
 "class": "ShipRotator",
+"language": "GDScript",
+"path": "res://Prefabs/Ship/ShipRotator.gd"
+}, {
+"base": "Node2D",
+"class": "ShipRotatorV2",
 "language": "GDScript",
 "path": "res://Prefabs/Ship/ShipRotatorV2.gd"
 }, {
@@ -35,8 +45,10 @@ _global_script_classes=[ {
 "path": "res://Prefabs/Ship/Trail.gd"
 } ]
 _global_script_class_icons={
+"DebugAngleCircle": "",
 "RotationThruster": "",
 "ShipRotator": "",
+"ShipRotatorV2": "",
 "ThrustedShip": "",
 "Thrusters": "",
 "Trail": ""

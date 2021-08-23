@@ -43,7 +43,7 @@ colors = PoolColorArray( 1.5, 1.5, 1.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.619608, 1, 1, 
 
 [node name="Ship" type="RigidBody2D"]
 position = Vector2( 256, 256 )
-angular_damp = 1.8
+angular_damp = 0.0
 script = ExtResource( 8 )
 thruster_power = 150.0
 
@@ -95,6 +95,7 @@ process_material = ExtResource( 6 )
 
 [node name="ShipRotator" type="Node2D" parent="."]
 script = ExtResource( 1 )
+adjustment_zone = 0.75
 
 [node name="DebugCircle" type="Node2D" parent="ShipRotator"]
 script = ExtResource( 14 )
@@ -102,7 +103,7 @@ __meta__ = {
 "_editor_description_": "	"
 }
 radius = 500.0
-adjustment_zone = 1.0
+adjustment_zone = 0.75
 
 [node name="Fill" type="Polygon2D" parent="ShipRotator/DebugCircle"]
 position = Vector2( -0.374573, -3.37115 )
@@ -130,12 +131,16 @@ width = 5.0
 [node name="AdjustmentZone" type="Node2D" parent="ShipRotator/DebugCircle"]
 
 [node name="Clockwise" type="Line2D" parent="ShipRotator/DebugCircle/AdjustmentZone"]
-points = PoolVector2Array( 0, 0, 270.151, -420.735 )
+points = PoolVector2Array( 0, 0, 365.844, -340.819 )
 default_color = Color( 0.533333, 0.756863, 0.419608, 1 )
 
 [node name="CounterClockwise" type="Line2D" parent="ShipRotator/DebugCircle/AdjustmentZone"]
-points = PoolVector2Array( 0, 0, 270.151, 420.735 )
+points = PoolVector2Array( 0, 0, 365.844, 340.819 )
 default_color = Color( 0.533333, 0.756863, 0.419608, 1 )
+
+[node name="TargetAngle" type="Line2D" parent="ShipRotator/DebugCircle"]
+width = 5.0
+default_color = Color( 1, 0.521569, 0.521569, 1 )
 
 [node name="EngineController" type="Node2D" parent="."]
 script = ExtResource( 12 )
@@ -211,6 +216,7 @@ zoom = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="LookCrossHair" type="Sprite" parent="."]
+visible = false
 position = Vector2( 151.503, 0 )
 rotation = 1.5708
 scale = Vector2( 0.75, 0.75 )
