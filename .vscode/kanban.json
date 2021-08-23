@@ -43,10 +43,6 @@
             "title": "To-Do",
             "tasks": [
                 {
-                    "text": "## Add Boost Fuel\nRight now Boost is over powered. It's fun at the moment, but there needs to be some sort of fuel",
-                    "id": "cksiabqjx00053z5s7w8r8q89"
-                },
-                {
                     "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
                     "id": "cksggdlrq00053z5sj9bt41i1"
                 },
@@ -89,6 +85,10 @@
                     "id": "cksfeh3sk00073z5spsrhp6xh"
                 },
                 {
+                    "text": "## Add Boost Fuel\nRight now Boost is over powered. It's fun at the moment, but there needs to be some sort of fuel",
+                    "id": "cksiabqjx00053z5s7w8r8q89"
+                },
+                {
                     "text": "## Create Particles when Thrusting\nAdds more Juice",
                     "id": "ckserxiu6000i3z5sf3vz81tq"
                 },
@@ -123,5 +123,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629667216218
+    "timestamp": 1629728523097
 }
