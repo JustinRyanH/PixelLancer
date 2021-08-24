@@ -156,7 +156,7 @@ default_color = Color( 1, 0.521569, 0.521569, 1 )
 
 [node name="EngineController" type="Node2D" parent="."]
 script = ExtResource( 12 )
-thruster_power = 150.0
+thruster_power = 250.0
 
 [node name="Thrusters" type="Node2D" parent="EngineController"]
 script = ExtResource( 9 )
@@ -228,7 +228,6 @@ zoom = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="LookCrossHair" type="Sprite" parent="."]
-visible = false
 position = Vector2( 151.503, 0 )
 rotation = 1.5708
 scale = Vector2( 0.75, 0.75 )

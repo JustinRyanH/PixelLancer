@@ -8,6 +8,12 @@
 [ext_resource path="res://Materials/Outline.tres" type="Material" id=6]
 [ext_resource path="res://Scripts/DebugUI.gd" type="Script" id=12]
 
+[sub_resource type="DynamicFont" id=3]
+size = 18
+outline_size = 2
+outline_color = Color( 0.294118, 0.294118, 0.294118, 1 )
+font_data = ExtResource( 5 )
+
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.819608, 0.819608, 1 )
 
@@ -23,12 +29,6 @@ expand_margin_right = 4.0
 expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 shadow_color = Color( 0, 0, 0, 0 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 18
-outline_size = 2
-outline_color = Color( 0.294118, 0.294118, 0.294118, 1 )
-font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 5 )
@@ -49,23 +49,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FuelBar" type="ProgressBar" parent="CanvasLayer/Control"]
-margin_left = 22.0
-margin_top = 36.8214
-margin_right = 190.0
-margin_bottom = 50.8214
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-percent_visible = false
+[node name="Ship" type="VBoxContainer" parent="CanvasLayer/Control"]
+margin_left = 11.3393
+margin_right = 111.339
+margin_bottom = 102.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FuelLabel" type="Label" parent="CanvasLayer/Control"]
-margin_left = 18.2162
-margin_top = 6.99984
-margin_right = 91.2162
-margin_bottom = 32.9998
+[node name="FuelLabel" type="Label" parent="CanvasLayer/Control/Ship"]
+margin_right = 146.0
+margin_bottom = 26.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.819608, 0.819608, 1 )
 text = "FUEL"
@@ -73,11 +67,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpeedLabel" type="Label" parent="CanvasLayer/Control"]
-margin_left = 20.1537
-margin_top = 57.9977
-margin_right = 87.1537
-margin_bottom = 83.9977
+[node name="FuelBox" type="HBoxContainer" parent="CanvasLayer/Control/Ship"]
+margin_top = 30.0
+margin_right = 146.0
+margin_bottom = 72.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelBar" type="ProgressBar" parent="CanvasLayer/Control/Ship/FuelBox"]
+margin_right = 100.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 100, 42 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 25.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RechargeBar" type="ProgressBar" parent="CanvasLayer/Control/Ship/FuelBox"]
+margin_left = 104.0
+margin_right = 146.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 42, 42 )
+rect_rotation = -90.0
+rect_pivot_offset = Vector2( 21, 21 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+percent_visible = false
+
+[node name="SpeedBox" type="HBoxContainer" parent="CanvasLayer/Control/Ship"]
+margin_top = 76.0
+margin_right = 146.0
+margin_bottom = 102.0
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/Control/Ship/SpeedBox"]
+margin_right = 61.0
+margin_bottom = 26.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.819608, 0.819608, 1 )
 text = "SPEED:"
@@ -85,11 +113,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpeedValue" type="Label" parent="CanvasLayer/Control"]
-margin_left = 91.7348
-margin_top = 60.0
-margin_right = 199.735
-margin_bottom = 86.0
+[node name="SpeedValue" type="Label" parent="CanvasLayer/Control/Ship/SpeedBox"]
+margin_left = 65.0
+margin_right = 77.0
+margin_bottom = 26.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.819608, 0.819608, 1 )
 text = "0"
@@ -98,16 +125,16 @@ __meta__ = {
 }
 
 [node name="RotationSection" type="VBoxContainer" parent="CanvasLayer/Control"]
-margin_left = 33.6765
-margin_top = 383.424
-margin_right = 299.677
-margin_bottom = 494.424
+margin_left = 299.384
+margin_top = 365.733
+margin_right = 499.384
+margin_bottom = 497.733
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TargetAngle" type="HBoxContainer" parent="CanvasLayer/Control/RotationSection"]
-margin_right = 266.0
+margin_right = 200.0
 margin_bottom = 23.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -130,7 +157,7 @@ __meta__ = {
 
 [node name="ActualAngle" type="HBoxContainer" parent="CanvasLayer/Control/RotationSection"]
 margin_top = 27.0
-margin_right = 266.0
+margin_right = 200.0
 margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,7 +180,7 @@ __meta__ = {
 
 [node name="AngularVelocity" type="HBoxContainer" parent="CanvasLayer/Control/RotationSection"]
 margin_top = 54.0
-margin_right = 266.0
+margin_right = 200.0
 margin_bottom = 77.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,34 +204,45 @@ __meta__ = {
 
 [node name="AngularDamping" type="HBoxContainer" parent="CanvasLayer/Control/RotationSection"]
 margin_top = 81.0
-margin_right = 266.0
-margin_bottom = 111.0
+margin_right = 200.0
+margin_bottom = 104.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Desc" type="Label" parent="CanvasLayer/Control/RotationSection/AngularDamping"]
-margin_top = 3.0
 margin_right = 163.0
-margin_bottom = 26.0
+margin_bottom = 23.0
 custom_fonts/font = SubResource( 4 )
 text = "Angular Damping: "
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Control/RotationSection/AngularDamping"]
-margin_left = 167.0
-margin_right = 217.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 50, 30 )
-max_value = 5.0
-step = 0.1
-
 [node name="Value" type="Label" parent="CanvasLayer/Control/RotationSection/AngularDamping"]
-margin_left = 221.0
-margin_top = 3.0
-margin_right = 231.0
-margin_bottom = 26.0
+margin_left = 167.0
+margin_right = 177.0
+margin_bottom = 23.0
 custom_fonts/font = SubResource( 4 )
 text = "3"
+
+[node name="DebugMode" type="HBoxContainer" parent="CanvasLayer/Control/RotationSection"]
+margin_top = 108.0
+margin_right = 200.0
+margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="CanvasLayer/Control/RotationSection/DebugMode"]
+margin_right = 118.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "Debug Mode: "
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Control/RotationSection/DebugMode"]
+margin_left = 122.0
+margin_right = 146.0
+margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="GameWorld" type="Node2D" parent="."]
 
@@ -273,4 +311,4 @@ material = ExtResource( 6 )
 position = Vector2( 445.735, 371.648 )
 texture = ExtResource( 2 )
 
-[connection signal="value_changed" from="CanvasLayer/Control/RotationSection/AngularDamping/HSlider" to="CanvasLayer/Control" method="_on_damping_changed"]
+[connection signal="toggled" from="CanvasLayer/Control/RotationSection/DebugMode/CheckBox" to="CanvasLayer/Control" method="_on_Debug_CheckBox_toggled"]

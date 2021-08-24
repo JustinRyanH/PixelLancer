@@ -63,6 +63,7 @@ config/icon="res://PixerLancerSquarepng.png"
 [autoload]
 
 Events="*res://Scripts/Events.gd"
+Debug="*res://Debug.gd"
 
 [display]
 

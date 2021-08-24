@@ -29,15 +29,16 @@ func update_crosshairs() -> void:
 
 func set_max_fuel(v: float) -> void:
 	max_fuel = v
-	
+
 func set_fuel(v: float) -> void:
 	refuel_tween.stop(self, "_update_fuel")
 	fuel_recharge_timer.start(fuel_recharge_delay)
 	fuel = v
-	
+
 func _update_fuel(v: float) -> void:
 	fuel = v
 
 func _on_FuelRechargeTimer_timeout():
-	refuel_tween.interpolate_method(self, "_update_fuel", fuel, max_fuel, 1.0)
+	var recharge_time = 1 - (fuel / max_fuel)
+	refuel_tween.interpolate_method(self, "_update_fuel", fuel, max_fuel, recharge_time)
 	refuel_tween.start()
