@@ -38,17 +38,24 @@ func _process(_delta: float) -> void:
 
 	set_target_angle(get_local_mouse_position().angle())
 
-	if abs(_target_angle) > _speed_adj_zone():
-		_thrust_force = _target_angle_sign * rotation_multiplayer
-	elif abs(_target_angle) > _adjusted_dead_zone:
-		if  _target_angle_sign != sign(parent.angular_velocity):
-			print("Overshoot")
+	var abs_target_angle = abs(_target_angle)
+	var abs_angular_velocity = abs(parent.angular_velocity)
+	if abs_target_angle > _speed_adj_zone():
+		if abs_angular_velocity > 1.0 and abs_target_angle > OVERSHOOT_ZONE:
+			if sign(parent.angular_velocity) == -_target_angle_sign:
+				_thrust_force = _target_angle_sign * -rotation_multiplayer
+			else:
+				_thrust_force = _target_angle_sign * rotation_multiplayer
+		else:
+			_thrust_force = _target_angle_sign * rotation_multiplayer
+	elif abs_target_angle > _adjusted_dead_zone:
+
 		if sign(parent.angular_velocity) == _target_angle_sign:
 			_thrust_force = -_target_angle_sign * 0.5 * rotation_multiplayer
 		else:
 			_thrust_force = _target_angle_sign * rotation_multiplayer
 	else:
-		if abs(parent.angular_velocity) < 0.5 and abs(parent.angular_velocity) > 0.0:
+		if abs_angular_velocity < 0.5 and abs_angular_velocity > 0.0:
 			parent.angular_velocity = lerp(parent.angular_velocity, 0.0, 0.5)
 		_thrust_force = 0
 
@@ -63,6 +70,7 @@ func _physics_process(delta: float):
 
 func _update_debug() -> void:
 	var debug_circle: DebugAngleCircle = $DebugCircle
+	debug_circle.visible = Debug.is_debug
 	debug_circle.dead_zone = _adjusted_dead_zone
 	debug_circle.adjustment_zone = _speed_adj_zone()
 	debug_circle.target_angle = _target_angle
