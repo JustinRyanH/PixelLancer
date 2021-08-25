@@ -20,8 +20,11 @@ func _ready():
 	Events.emit_signal("connect_ship", self)
 
 func _process(_delta: float) -> void:
-	var target_position = (get_global_mouse_position() - global_position).normalized()
-	rotator.target = target_position
+	if Input.is_action_pressed("counter_velocity"):
+		rotator.target = linear_velocity.normalized() * -1
+	else:
+		var target_position = (get_global_mouse_position() - global_position).normalized()
+		rotator.target = target_position
 	update_crosshairs()
 
 func update_crosshairs() -> void:
