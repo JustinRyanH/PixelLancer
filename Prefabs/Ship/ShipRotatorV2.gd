@@ -38,7 +38,6 @@ func _process(_delta: float) -> void:
 	emit_thrust()
 
 	var abs_target_angle = abs(target_angle)
-	print("abs_target_angle: %s" % abs_target_angle)
 	var abs_angular_velocity = abs(parent.angular_velocity)
 	if abs_target_angle > _speed_adj_zone():
 		if abs_angular_velocity > 1.0 and abs_target_angle > OVERSHOOT_ZONE:
