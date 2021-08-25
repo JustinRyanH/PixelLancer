@@ -45,7 +45,8 @@ colors = PoolColorArray( 1.5, 1.5, 1.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.619608, 1, 1, 
 position = Vector2( 256, 256 )
 angular_damp = 1.0
 script = ExtResource( 8 )
-thruster_power = 150.0
+thruster_power = 400.0
+max_speed = 1800.0
 
 [node name="RotationStarboard" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -156,7 +157,6 @@ default_color = Color( 1, 0.521569, 0.521569, 1 )
 
 [node name="EngineController" type="Node2D" parent="."]
 script = ExtResource( 12 )
-thruster_power = 250.0
 
 [node name="Thrusters" type="Node2D" parent="EngineController"]
 script = ExtResource( 9 )
