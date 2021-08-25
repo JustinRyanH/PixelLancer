@@ -38,6 +38,14 @@
                 {
                     "text": "## Thruster Reducation shows up in particles\n\nParticle Reduction shows up\n",
                     "id": "cksp2pmvr00053z5szuw0j7u0"
+                },
+                {
+                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
+                    "id": "cksggdlrq00053z5sj9bt41i1"
+                },
+                {
+                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
+                    "id": "cksmneyjz00073z5shm9yn1jv"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -47,20 +55,12 @@
             "title": "To-Do",
             "tasks": [
                 {
-                    "text": "## Rotate to Found Velocity\n\nPress a Key to Rotate the ship to counter velocity",
-                    "id": "cksmnbdoe00063z5srdjitdir"
-                },
-                {
-                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
-                    "id": "cksmneyjz00073z5shm9yn1jv"
-                },
-                {
                     "text": "## Create Screen Shake when moving\nAdds more juice",
                     "id": "ckserxr78000j3z5sl3hqi6m8"
                 },
                 {
-                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
-                    "id": "cksggdlrq00053z5sj9bt41i1"
+                    "text": "## Boost exceeds Velocity\nBoost exceeds the maximum length",
+                    "id": "cksqw3cy700053z5se92ccosj"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -68,7 +68,12 @@
         },
         {
             "title": "Doing",
-            "tasks": [],
+            "tasks": [
+                {
+                    "text": "## Rotate to CounterVelocity\n\nPress a Key to Rotate the ship to counter velocity",
+                    "id": "cksmnbdoe00063z5srdjitdir"
+                }
+            ],
             "id": "ckserjgg600083z5sc6xbk4ot",
             "color": "#0693e3"
         },
@@ -126,5 +131,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629749418226
+    "timestamp": 1629859326570
 }
