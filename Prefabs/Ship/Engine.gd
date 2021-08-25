@@ -9,7 +9,7 @@ export var thruster_power := 100.0
 export var max_speed := 900.0
 export var thrust_curve: Curve
 
-var _boost: bool = false
+var boost := false setget set_boost
 var _thrust: Vector2 = Vector2.ZERO
 
 onready var thrusters: Thrusters = $Thrusters
@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		parent.linear_velocity = parent.linear_velocity.clamped(max_speed)
 	if parent.fuel <= 0:
 		return
-	if _boost:
+	if boost:
 		reduce_fuel(delta * thruster_power)
 		parent.apply_central_impulse(
 			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost_multiplayer * delta)
@@ -44,7 +44,7 @@ func move_input() -> void:
 		_thrust.y -= 1
 	if Input.is_action_pressed("thrust_right"):
 		_thrust.y += 1
-	_boost = Input.is_action_pressed("boost") and parent.fuel > 0
+	boost = Input.is_action_pressed("boost") and parent.fuel > 0
 	# Normalize the Thrust so that we don't get the
 	# the quake strife bug
 	_thrust = _thrust.normalized()
@@ -62,7 +62,10 @@ func move_input() -> void:
 # Then we reverse the thrust so that the thruster direction matches with the thruster
 func _emit_thrusters(thrust: Vector2) -> void:
 	thrusters.emission_vector = -thrust
-	thrusters.boost = _boost
+	thrusters.boost = boost
 
 func reduce_fuel(amount: float) -> void:
 	parent.fuel = max(parent.fuel - amount, 0.0)
+
+func set_boost(v: bool) -> void:
+	boost = v
