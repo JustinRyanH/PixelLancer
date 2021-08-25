@@ -15,7 +15,7 @@ onready var rotate_port: RotationThruster = parent.get_node("RotationPort")
 onready var rotate_starboard: RotationThruster = parent.get_node("RotationStarboard")
 
 
-var _target_angle: float = 0.0
+var target_angle: float = 0.0 setget set_target_angle
 var _target_angle_sign: int = 0
 var _thrust_force: float = 0.0
 var _adjusted_dead_zone: float = dead_zone
@@ -36,9 +36,7 @@ func _process(_delta: float) -> void:
 	_adjusted_dead_zone = _adjust_dead_zone()
 	emit_thrust()
 
-	set_target_angle(get_local_mouse_position().angle())
-
-	var abs_target_angle = abs(_target_angle)
+	var abs_target_angle = abs(target_angle)
 	var abs_angular_velocity = abs(parent.angular_velocity)
 	if abs_target_angle > _speed_adj_zone():
 		if abs_angular_velocity > 1.0 and abs_target_angle > OVERSHOOT_ZONE:
@@ -73,7 +71,7 @@ func _update_debug() -> void:
 	debug_circle.visible = Debug.is_debug
 	debug_circle.dead_zone = _adjusted_dead_zone
 	debug_circle.adjustment_zone = _speed_adj_zone()
-	debug_circle.target_angle = _target_angle
+	debug_circle.target_angle = target_angle
 	debug_circle.overshoot_zone = OVERSHOOT_ZONE
 
 func _speed_adj_zone() -> float:
@@ -81,7 +79,7 @@ func _speed_adj_zone() -> float:
 	return max(zone, _adjusted_dead_zone)
 
 func set_target_angle(new_angle: float) -> void:
-	_target_angle = new_angle
+	target_angle = new_angle
 	_target_angle_sign = int(sign(new_angle))
 
 func _adjust_dead_zone() -> float:

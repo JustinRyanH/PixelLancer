@@ -35,7 +35,7 @@ func update_main_ship() -> void:
 	fuel_recharge.value = _main_ship.fuel_recharge_timer.time_left
 	var rotator: ShipRotatorV2 = _main_ship.get_node("ShipRotator")
 	if rotator:
-		target_angle_label.text = "%2.4f" % rotator._target_angle
+		target_angle_label.text = "%2.4f" % rotator.target_angle
 
 func _on_Debug_CheckBox_toggled(button_pressed: bool):
 	Debug.is_debug = button_pressed

@@ -21,6 +21,7 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	update_crosshairs()
+	rotator.target_angle = get_local_mouse_position().angle()
 
 func update_crosshairs() -> void:
 	var _mouse_pos = get_local_mouse_position().normalized()
