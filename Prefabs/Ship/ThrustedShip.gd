@@ -20,8 +20,8 @@ func _ready():
 	Events.emit_signal("connect_ship", self)
 
 func _process(_delta: float) -> void:
+	rotator.target_angle = (get_global_mouse_position() - global_position).angle()
 	update_crosshairs()
-	rotator.target_angle = get_local_mouse_position().angle()
 
 func update_crosshairs() -> void:
 	var _mouse_pos = get_local_mouse_position().normalized()

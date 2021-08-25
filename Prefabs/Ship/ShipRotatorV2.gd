@@ -78,9 +78,10 @@ func _speed_adj_zone() -> float:
 	var zone = adjustment_zone * (abs(parent.angular_velocity) / max_angular_velocity)
 	return max(zone, _adjusted_dead_zone)
 
-func set_target_angle(new_angle: float) -> void:
-	target_angle = new_angle
-	_target_angle_sign = int(sign(new_angle))
+func set_target_angle(global_target_angle: float) -> void:
+	var local_adjusted_angle = global_target_angle - global_rotation
+	target_angle = local_adjusted_angle
+	_target_angle_sign = int(sign(local_adjusted_angle))
 
 func _adjust_dead_zone() -> float:
 	var mouse_dist := get_local_mouse_position().length()
