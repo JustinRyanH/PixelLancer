@@ -7,6 +7,18 @@
                 {
                     "text": "## What if... Thrusters\n\nWhat if the Thrusters were nodes, and they communicated the applied_force to  object they are attached to. This would allow for future configuration. \n\n\nThis is something I try once I get something resembling a game done\n\n### 8-20-2021\n\nI totally ended up refactoring to something close where I create a engine node",
                     "id": "ckshm1h0o00053z5s4vibcwvq"
+                },
+                {
+                    "text": "## Damping increases if accelerating\n\nI think if the ship is accelerating it will be harder to turn, and turns will stablize faster. I think this would be a decent gamepla",
+                    "id": "cksmnkbh800053z5s34pmj16d"
+                },
+                {
+                    "text": "## Docking Sequence\n\nSet a sequence to land the ship in a space station or something\n",
+                    "id": "cksqwmufb00063z5sx7o6crp5"
+                },
+                {
+                    "text": "# Plant Orbit",
+                    "id": "cksqwoq2500073z5sxqwqmhcw"
                 }
             ],
             "id": "ckshm0i2300063z5sbyq65qvv",
@@ -16,36 +28,20 @@
             "title": "Backburner",
             "tasks": [
                 {
-                    "text": "# Fix\n### Don't reverse rotation \nIf I switch to the other side of the axis. Just keep going\n",
-                    "id": "ckskydsco00053z5syp1nrgx8"
+                    "text": "## Advance Thrusters\n\n### Forward Thruster Curved with Velocity\n\nAs the Ship reases peak velocity the ship  ship acceleration reduces in quality. \nIf the forward thrust is another direction it will be treated the same as near stop until the thruster catches up.\n\n### Side Thrusters allow skip\n\nI think it might be cool as a means of dodging obsticals. There might need to be limits on the effectiveness. Maybe this is a dash with double tap?",
+                    "id": "cksqwe8x000053z5shwjxqtte"
                 },
                 {
-                    "text": "## Smooth out line\n\nI think I just need to lerp the last to the second to last point and remove when they're close enough",
+                    "text": "## Smooth out boost line\n\nI think I just need to lerp the last to the second to last point and remove when they're close enough",
                     "id": "cksf3x7h600053z5su34hi87h"
-                },
-                {
-                    "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
-                    "id": "cksmnh4aj00083z5s62id53xg"
-                },
-                {
-                    "text": "## Damping increases if accelerating\n\nI think if the ship is accelerating it will be harder to turn, and turns will stablize faster. I think this would be a decent gamepla",
-                    "id": "cksmnkbh800053z5s34pmj16d"
-                },
-                {
-                    "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
-                    "id": "cksnprb0q00053z5sx017yzzg"
                 },
                 {
                     "text": "## Thruster Reducation shows up in particles\n\nParticle Reduction shows up\n",
                     "id": "cksp2pmvr00053z5szuw0j7u0"
                 },
                 {
-                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the end user that the current Thrust less powerful or more powerful based on ship direction",
+                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the player that the current Thrust less powerful or more powerful based on ship direction",
                     "id": "cksggdlrq00053z5sj9bt41i1"
-                },
-                {
-                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
-                    "id": "cksmneyjz00073z5shm9yn1jv"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -55,12 +51,24 @@
             "title": "To-Do",
             "tasks": [
                 {
+                    "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
+                    "id": "cksmnh4aj00083z5s62id53xg"
+                },
+                {
                     "text": "## Create Screen Shake when moving\nAdds more juice",
                     "id": "ckserxr78000j3z5sl3hqi6m8"
                 },
                 {
                     "text": "## Boost exceeds Velocity\nBoost exceeds the maximum length",
                     "id": "cksqw3cy700053z5se92ccosj"
+                },
+                {
+                    "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
+                    "id": "cksnprb0q00053z5sx017yzzg"
+                },
+                {
+                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
+                    "id": "cksmneyjz00073z5shm9yn1jv"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -81,12 +89,12 @@
             "title": "Done",
             "tasks": [
                 {
-                    "text": "## Create Four Axis Space Moment\n\nThe play moves in 4 axis of thrusters,",
-                    "id": "ckseruz6z000f3z5surcabqsz"
+                    "text": "# Fix\n### Don't reverse rotation \nIf I switch to the other side of the axis. Just keep going\n",
+                    "id": "ckskydsco00053z5syp1nrgx8"
                 },
                 {
-                    "text": "## Create Four Axis Space Moment\n\nThruster increase in speed when moving thrusting in direction the ship is facing",
-                    "id": "cksfeh3sk00073z5spsrhp6xh"
+                    "text": "## Create Four Axis Space Moment\n\nThe play moves in 4 axis of thrusters,",
+                    "id": "ckseruz6z000f3z5surcabqsz"
                 },
                 {
                     "text": "## Add Boost Fuel\nRight now Boost is over powered. It's fun at the moment, but there needs to be some sort of fuel",
@@ -131,5 +139,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629859326570
+    "timestamp": 1629860221396
 }
