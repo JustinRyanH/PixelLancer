@@ -10,7 +10,7 @@ export var max_speed := 900.0
 export var thrust_curve: Curve
 
 var boost := false setget set_boost
-var _thrust: Vector2 = Vector2.ZERO
+var thrust := Vector2.ZERO setget set_thrust_direction
 
 onready var thrusters: Thrusters = $Thrusters
 
@@ -26,16 +26,16 @@ func _physics_process(delta: float) -> void:
 		reduce_fuel(delta * thruster_power)
 		parent.apply_central_impulse(
 			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost_multiplayer * delta)
-	if _thrust.length_squared() > 0:
-		var direction_match := _thrust.normalized() - Vector2.RIGHT.rotated(parent.rotation)
+	if thrust.length_squared() > 0:
+		var direction_match := thrust - Vector2.RIGHT.rotated(parent.rotation)
 		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
 		direction_multiplayer = clamp(direction_multiplayer, 0.5, 1.0)
 		parent.fuel -= delta
 		reduce_fuel(delta * direction_multiplayer)
-		parent.apply_central_impulse(_thrust * thruster_power * direction_multiplayer * delta)
+		parent.apply_central_impulse(thrust * thruster_power * direction_multiplayer * delta)
 
 func move_input() -> void:
-	_thrust = Vector2.ZERO
+	var _thrust = Vector2.ZERO
 	if Input.is_action_pressed("thrust_up"):
 		_thrust.x += 1
 	if Input.is_action_pressed("thrust_down"):
@@ -53,7 +53,7 @@ func move_input() -> void:
 	else:
 		_emit_thrusters(Vector2.ZERO)
 
-	_thrust = _thrust.rotated(parent.rotation)
+	thrust = _thrust.rotated(parent.rotation)
 
 ## Set Thrust Direction for Thruster Emission
 # Thrust direction is relative to the screen, but when we emit we need to
@@ -69,3 +69,6 @@ func reduce_fuel(amount: float) -> void:
 
 func set_boost(v: bool) -> void:
 	boost = v
+
+func set_thrust_direction(v: Vector2) -> void:
+	thrust = v
