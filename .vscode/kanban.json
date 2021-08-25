@@ -65,10 +65,6 @@
                 {
                     "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
                     "id": "cksnprb0q00053z5sx017yzzg"
-                },
-                {
-                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
-                    "id": "cksmneyjz00073z5shm9yn1jv"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -78,8 +74,8 @@
             "title": "Doing",
             "tasks": [
                 {
-                    "text": "## Rotate to CounterVelocity\n\nPress a Key to Rotate the ship to counter velocity",
-                    "id": "cksmnbdoe00063z5srdjitdir"
+                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
+                    "id": "cksmneyjz00073z5shm9yn1jv"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -91,6 +87,10 @@
                 {
                     "text": "# Fix\n### Don't reverse rotation \nIf I switch to the other side of the axis. Just keep going\n",
                     "id": "ckskydsco00053z5syp1nrgx8"
+                },
+                {
+                    "text": "## Rotate to CounterVelocity\n\nPress a Key to Rotate the ship to counter velocity",
+                    "id": "cksmnbdoe00063z5srdjitdir"
                 },
                 {
                     "text": "## Create Four Axis Space Moment\n\nThe play moves in 4 axis of thrusters,",
@@ -139,5 +139,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629860221396
+    "timestamp": 1629906784132
 }
