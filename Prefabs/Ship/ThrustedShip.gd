@@ -15,7 +15,7 @@ onready var refuel_tween: Tween = $RefuelTween
 onready var rotator := $ShipRotator
 onready var engine := $EngineController
 
-var boost := false
+var boost := 0.0
 var thrust := Vector2.ZERO
 var rotation_target := Vector2.ZERO
 var _movement_state: int = Movement.Standard
@@ -25,7 +25,6 @@ func _set_movement_state(next_state: int) -> void:
 		return
 	match next_state:
 		Movement.Decel:
-			rotation_target = linear_velocity.normalized() * -1
 			_movement_state = next_state
 		Movement.Standard:
 			_movement_state = next_state
@@ -48,7 +47,10 @@ func _process(delta: float) -> void:
 	update_crosshairs()
 
 func decel_process(_delta: float) -> void:
+	rotation_target = linear_velocity.normalized() * -1
 	thrust = linear_velocity.normalized() * -1
+	if thrust.distance_squared_to(Vector2.RIGHT.rotated(rotation)) < 0.002:
+		boost = 0.25
 	if linear_velocity.length_squared() < 1:
 		linear_velocity = Vector2.ZERO
 		_set_movement_state(Movement.Standard)
@@ -92,5 +94,5 @@ func move_input() -> void:
 		_thrust.y -= 1
 	if Input.is_action_pressed("thrust_right"):
 		_thrust.y += 1
-	boost = Input.is_action_pressed("boost")
+	boost = 1.0 if Input.is_action_pressed("boost") else 0.0
 	thrust = _thrust.normalized().rotated(rotation)

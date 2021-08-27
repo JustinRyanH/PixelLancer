@@ -11,7 +11,7 @@ export var thruster_power := 100.0
 export var max_speed := 900.0
 export var thrust_curve: Curve
 
-var boost := false setget set_boost
+var boost := 0.0 setget set_boost
 var thrust := Vector2.ZERO setget set_thrust_direction
 var _rotated_thrust := Vector2.ZERO
 
@@ -26,10 +26,10 @@ func _physics_process(delta: float) -> void:
 		parent.linear_velocity = parent.linear_velocity.clamped(max_speed)
 	if parent.fuel <= 0:
 		return
-	if boost and parent.fuel > _boost_fuel_min:
+	if boost > 0.0 and parent.fuel > _boost_fuel_min:
 		reduce_fuel(delta * boost_fuel_consumption_multiplayer)
 		parent.apply_central_impulse(
-			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost_multiplayer * delta)
+			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost * boost_multiplayer * delta)
 	if _rotated_thrust.length_squared() > 0:
 		var direction_multiplayer = direction_multiplayer()
 		reduce_fuel(delta * direction_multiplayer * thrust_fuel_consumption_multiplayer)
@@ -42,12 +42,12 @@ func _physics_process(delta: float) -> void:
 # Then we reverse the thrust so that the thruster direction matches with the thruster
 func _emit_thrusters(p_thrust: Vector2) -> void:
 	thrusters.emission_vector = -p_thrust if parent.fuel > 0 else Vector2.ZERO
-	thrusters.boost = boost if parent.fuel > _boost_fuel_min else false
+	thrusters.boost = boost != 0 if parent.fuel > _boost_fuel_min else false
 
 func reduce_fuel(amount: float) -> void:
 	parent.fuel = max(parent.fuel - amount, 0.0)
 
-func set_boost(v: bool) -> void:
+func set_boost(v: float) -> void:
 	boost = v and parent.fuel > 0
 
 func set_thrust_direction(v: Vector2) -> void:
