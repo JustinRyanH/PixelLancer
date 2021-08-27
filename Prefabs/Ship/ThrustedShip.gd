@@ -17,7 +17,18 @@ onready var engine := $EngineController
 
 var boost := false
 var thrust := Vector2.ZERO
+var rotation_target := Vector2.ZERO
 var _movement_state: int = Movement.Standard
+
+func _set_movement_state(next_state: int) -> void:
+	if next_state == _movement_state:
+		return
+	match next_state:
+		Movement.Decel:
+			rotation_target = linear_velocity.normalized() * -1
+			_movement_state = next_state
+		Movement.Standard:
+			_movement_state = next_state
 
 func _ready():
 	engine.max_speed = max_speed
@@ -28,21 +39,27 @@ func _ready():
 func _process(delta: float) -> void:
 	match _movement_state:
 		Movement.Decel:
-			pass
+			decel_process(delta)
 		Movement.Standard:
 			standard_process(delta)
+	engine.boost = boost
+	engine.thrust = thrust
+	rotator.target = rotation_target
+	update_crosshairs()
 
+func decel_process(_delta: float) -> void:
+	thrust = linear_velocity.normalized() * -1
+	if linear_velocity.length_squared() < 1:
+		linear_velocity = Vector2.ZERO
+		_set_movement_state(Movement.Standard)
 
 func standard_process(_delta: float) -> void:
 	move_input()
-	if Input.is_action_pressed("counter_velocity"):
-		rotator.target = linear_velocity.normalized() * -1
+	if Input.is_action_just_pressed("counter_velocity"):
+		_set_movement_state(Movement.Decel)
 	else:
 		var target_position = (get_global_mouse_position() - global_position).normalized()
-		rotator.target = target_position
-	update_crosshairs()
-	engine.boost = boost
-	engine.thrust = thrust.rotated(rotation)
+		rotation_target = target_position
 
 func update_crosshairs() -> void:
 	var _mouse_pos = get_local_mouse_position().normalized()
@@ -76,4 +93,4 @@ func move_input() -> void:
 	if Input.is_action_pressed("thrust_right"):
 		_thrust.y += 1
 	boost = Input.is_action_pressed("boost")
-	thrust = _thrust.normalized()
+	thrust = _thrust.normalized().rotated(rotation)
