@@ -96,6 +96,7 @@ process_material = ExtResource( 6 )
 
 [node name="ShipRotator" type="Node2D" parent="."]
 script = ExtResource( 1 )
+dead_zone = 0.05
 rotation_multiplayer = 8.0
 max_angular_velocity = 4.0
 
