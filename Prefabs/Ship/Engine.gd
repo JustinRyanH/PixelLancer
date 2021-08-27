@@ -28,9 +28,7 @@ func _physics_process(delta: float) -> void:
 		parent.apply_central_impulse(
 			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost_multiplayer * delta)
 	if _rotated_thrust.length_squared() > 0:
-		var direction_match := _rotated_thrust - Vector2.RIGHT.rotated(parent.rotation)
-		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
-		direction_multiplayer = clamp(direction_multiplayer, 0.5, 1.0)
+		var direction_multiplayer = direction_multiplayer()
 		parent.fuel -= delta
 		reduce_fuel(delta * direction_multiplayer)
 		parent.apply_central_impulse(_rotated_thrust * thruster_power * direction_multiplayer * delta)
@@ -53,3 +51,9 @@ func set_boost(v: bool) -> void:
 func set_thrust_direction(v: Vector2) -> void:
 	thrust = v
 	_rotated_thrust = v.rotated(parent.rotation)
+
+## Reduces the power of thrust based on direction
+func direction_multiplayer() -> float:
+	var direction_match := _rotated_thrust - Vector2.RIGHT.rotated(parent.rotation)
+	var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
+	return clamp(direction_multiplayer, 0.5, 1.0)
