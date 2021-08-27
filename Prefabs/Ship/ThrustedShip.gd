@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name ThrustedShip
 
+enum Movement { Standard, Decel }
+
 export var thruster_power := 100.0
 export var max_speed := 900.0
 
@@ -15,6 +17,7 @@ onready var engine := $EngineController
 
 var boost := false
 var thrust := Vector2.ZERO
+var _movement_state: int = Movement.Standard
 
 func _ready():
 	engine.max_speed = max_speed
@@ -22,7 +25,15 @@ func _ready():
 	yield(get_tree().create_timer(0.5), "timeout")
 	Events.emit_signal("connect_ship", self)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	match _movement_state:
+		Movement.Decel:
+			pass
+		Movement.Standard:
+			standard_process(delta)
+
+
+func standard_process(_delta: float) -> void:
 	move_input()
 	if Input.is_action_pressed("counter_velocity"):
 		rotator.target = linear_velocity.normalized() * -1
