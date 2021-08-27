@@ -157,6 +157,7 @@ default_color = Color( 1, 0.521569, 0.521569, 1 )
 
 [node name="EngineController" type="Node2D" parent="."]
 script = ExtResource( 12 )
+thrust_fuel_consumption_multiplayer = 5.0
 
 [node name="Thrusters" type="Node2D" parent="EngineController"]
 script = ExtResource( 9 )

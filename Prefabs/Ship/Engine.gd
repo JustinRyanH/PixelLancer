@@ -4,6 +4,8 @@ onready var parent: ThrustedShip = get_parent()
 
 const PI_DIV_8 = PI / 8
 
+export var thrust_fuel_consumption_multiplayer := 1.0
+export var boost_fuel_consumption_multiplayer := 175.0
 export var boost_multiplayer := 4.0
 export var thruster_power := 100.0
 export var max_speed := 900.0
@@ -14,6 +16,7 @@ var thrust := Vector2.ZERO setget set_thrust_direction
 var _rotated_thrust := Vector2.ZERO
 
 onready var thrusters: Thrusters = $Thrusters
+onready var _boost_fuel_min := parent.max_fuel * 0.1
 
 func _process(_delta: float) -> void:
 	_emit_thrusters(_rotated_thrust)
@@ -23,13 +26,13 @@ func _physics_process(delta: float) -> void:
 		parent.linear_velocity = parent.linear_velocity.clamped(max_speed)
 	if parent.fuel <= 0:
 		return
-	if boost:
-		reduce_fuel(delta * thruster_power)
+	if boost and parent.fuel > _boost_fuel_min:
+		reduce_fuel(delta * boost_fuel_consumption_multiplayer)
 		parent.apply_central_impulse(
 			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost_multiplayer * delta)
 	if _rotated_thrust.length_squared() > 0:
 		var direction_multiplayer = direction_multiplayer()
-		reduce_fuel(delta * direction_multiplayer)
+		reduce_fuel(delta * direction_multiplayer * thrust_fuel_consumption_multiplayer)
 		parent.apply_central_impulse(_rotated_thrust * thruster_power * direction_multiplayer * delta)
 
 ## Set Thrust Direction for Thruster Emission
@@ -39,7 +42,7 @@ func _physics_process(delta: float) -> void:
 # Then we reverse the thrust so that the thruster direction matches with the thruster
 func _emit_thrusters(p_thrust: Vector2) -> void:
 	thrusters.emission_vector = -p_thrust if parent.fuel > 0 else Vector2.ZERO
-	thrusters.boost = boost if parent.fuel > 0 else false
+	thrusters.boost = boost if parent.fuel > _boost_fuel_min else false
 
 func reduce_fuel(amount: float) -> void:
 	parent.fuel = max(parent.fuel - amount, 0.0)

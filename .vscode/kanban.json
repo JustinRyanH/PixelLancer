@@ -61,10 +61,6 @@
                 {
                     "text": "## Boost exceeds Velocity\nBoost exceeds the maximum length",
                     "id": "cksqw3cy700053z5se92ccosj"
-                },
-                {
-                    "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
-                    "id": "cksnprb0q00053z5sx017yzzg"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -131,6 +127,10 @@
                 {
                     "text": "# Experiment\n## Thrusters takes orientation in account",
                     "id": "cksictyhj00063z5sckgvflo7"
+                },
+                {
+                    "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
+                    "id": "cksnprb0q00053z5sx017yzzg"
                 }
             ],
             "id": "ckserjgg600093z5s8qsb7ns3",
@@ -139,5 +139,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1629906784132
+    "timestamp": 1630074305758
 }
