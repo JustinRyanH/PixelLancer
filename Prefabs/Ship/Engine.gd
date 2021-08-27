@@ -11,11 +11,9 @@ export var thrust_curve: Curve
 
 var boost := false setget set_boost
 var thrust := Vector2.ZERO setget set_thrust_direction
+var _rotated_thrust := Vector2.ZERO
 
 onready var thrusters: Thrusters = $Thrusters
-
-func _process(_delta: float) -> void:
-	move_input()
 
 func _physics_process(delta: float) -> void:
 	if parent.linear_velocity.length_squared() > max_speed * max_speed:
@@ -26,13 +24,17 @@ func _physics_process(delta: float) -> void:
 		reduce_fuel(delta * thruster_power)
 		parent.apply_central_impulse(
 			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost_multiplayer * delta)
-	if thrust.length_squared() > 0:
-		var direction_match := thrust - Vector2.RIGHT.rotated(parent.rotation)
+	if _rotated_thrust.length_squared() > 0:
+		var direction_match := _rotated_thrust - Vector2.RIGHT.rotated(parent.rotation)
 		var direction_multiplayer := (4.0 - direction_match.length_squared()) / 4.0
 		direction_multiplayer = clamp(direction_multiplayer, 0.5, 1.0)
 		parent.fuel -= delta
 		reduce_fuel(delta * direction_multiplayer)
-		parent.apply_central_impulse(thrust * thruster_power * direction_multiplayer * delta)
+		parent.apply_central_impulse(_rotated_thrust * thruster_power * direction_multiplayer * delta)
+	if parent.fuel > 0:
+		_emit_thrusters(_rotated_thrust)
+	else:
+		_emit_thrusters(Vector2.ZERO)
 
 func move_input() -> void:
 	var _thrust = Vector2.ZERO
@@ -48,10 +50,6 @@ func move_input() -> void:
 	# Normalize the Thrust so that we don't get the
 	# the quake strife bug
 	_thrust = _thrust.normalized()
-	if parent.fuel > 0:
-		_emit_thrusters(_thrust)
-	else:
-		_emit_thrusters(Vector2.ZERO)
 
 	thrust = _thrust.rotated(parent.rotation)
 
@@ -68,7 +66,8 @@ func reduce_fuel(amount: float) -> void:
 	parent.fuel = max(parent.fuel - amount, 0.0)
 
 func set_boost(v: bool) -> void:
-	boost = v
+	boost = v and parent.fuel > 0
 
 func set_thrust_direction(v: Vector2) -> void:
 	thrust = v
+	_rotated_thrust = v.rotated(parent.rotation)

@@ -13,6 +13,9 @@ onready var refuel_tween: Tween = $RefuelTween
 onready var rotator := $ShipRotator
 onready var engine := $EngineController
 
+var boost := false
+var thrust := Vector2.ZERO
+
 func _ready():
 	engine.max_speed = max_speed
 	engine.thruster_power = thruster_power
@@ -20,12 +23,15 @@ func _ready():
 	Events.emit_signal("connect_ship", self)
 
 func _process(_delta: float) -> void:
+	move_input()
 	if Input.is_action_pressed("counter_velocity"):
 		rotator.target = linear_velocity.normalized() * -1
 	else:
 		var target_position = (get_global_mouse_position() - global_position).normalized()
 		rotator.target = target_position
 	update_crosshairs()
+	engine.boost = boost
+	engine.thrust = thrust
 
 func update_crosshairs() -> void:
 	var _mouse_pos = get_local_mouse_position().normalized()
@@ -47,3 +53,16 @@ func _on_FuelRechargeTimer_timeout():
 	var recharge_time = 1 - (fuel / max_fuel)
 	refuel_tween.interpolate_method(self, "_update_fuel", fuel, max_fuel, recharge_time)
 	refuel_tween.start()
+
+func move_input() -> void:
+	var _thrust = Vector2.ZERO
+	if Input.is_action_pressed("thrust_up"):
+		_thrust.x += 1
+	if Input.is_action_pressed("thrust_down"):
+		_thrust.x -= 1
+	if Input.is_action_pressed("thrust_left"):
+		_thrust.y -= 1
+	if Input.is_action_pressed("thrust_right"):
+		_thrust.y += 1
+	boost = Input.is_action_pressed("boost")
+	thrust = _thrust.normalized()
