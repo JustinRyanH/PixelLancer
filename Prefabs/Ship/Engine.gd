@@ -19,7 +19,7 @@ onready var thrusters: Thrusters = $Thrusters
 onready var _boost_fuel_min := parent.max_fuel * 0.1
 
 func _process(_delta: float) -> void:
-	_emit_thrusters(_rotated_thrust)
+	_emit_thrusters(thrust)
 
 func _physics_process(delta: float) -> void:
 	if parent.linear_velocity.length_squared() > max_speed * max_speed:
@@ -51,8 +51,8 @@ func set_boost(v: bool) -> void:
 	boost = v and parent.fuel > 0
 
 func set_thrust_direction(v: Vector2) -> void:
-	thrust = v
-	_rotated_thrust = v.rotated(parent.rotation)
+	thrust = v.rotated(-parent.rotation)
+	_rotated_thrust = v
 
 ## Reduces the power of thrust based on direction
 func direction_multiplayer() -> float:

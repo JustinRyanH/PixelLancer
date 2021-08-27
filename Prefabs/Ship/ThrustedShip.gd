@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 		rotator.target = target_position
 	update_crosshairs()
 	engine.boost = boost
-	engine.thrust = thrust
+	engine.thrust = thrust.rotated(rotation)
 
 func update_crosshairs() -> void:
 	var _mouse_pos = get_local_mouse_position().normalized()
