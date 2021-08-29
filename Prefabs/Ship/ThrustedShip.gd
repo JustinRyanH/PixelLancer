@@ -52,6 +52,7 @@ func decel_process(_delta: float) -> void:
 	if thrust.distance_squared_to(Vector2.RIGHT.rotated(rotation)) < 0.002:
 		boost = 0.25
 	if linear_velocity.length_squared() < 1:
+		thrust = Vector2.ZERO
 		linear_velocity = Vector2.ZERO
 		_set_movement_state(Movement.Standard)
 
