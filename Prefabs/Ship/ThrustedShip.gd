@@ -49,6 +49,9 @@ func _process(delta: float) -> void:
 func decel_process(_delta: float) -> void:
 	rotation_target = linear_velocity.normalized() * -1
 	thrust = linear_velocity.normalized() * -1
+	if should_cancel_decel():
+		_set_movement_state(Movement.Standard)
+		return
 	if thrust.distance_squared_to(Vector2.RIGHT.rotated(rotation)) < 0.002:
 		boost = 0.25
 	if linear_velocity.length_squared() < 1:
@@ -84,6 +87,14 @@ func _on_FuelRechargeTimer_timeout():
 	var recharge_time = 1 - (fuel / max_fuel)
 	refuel_tween.interpolate_method(self, "_update_fuel", fuel, max_fuel, recharge_time)
 	refuel_tween.start()
+	
+func should_cancel_decel() -> bool:
+	return (Input.is_action_just_pressed("thrust_down") or
+		Input.is_action_just_pressed("thrust_left") or
+		Input.is_action_just_pressed("thrust_right") or
+		Input.is_action_just_pressed("thrust_up") or
+		Input.is_action_just_pressed("boost"))
+
 
 func move_input() -> void:
 	var _thrust = Vector2.ZERO
