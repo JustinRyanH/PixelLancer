@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PixelLancer"
-run/main_scene="res://Scenes/Game.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://PixerLancerSquarepng.png"
 
 [autoload]

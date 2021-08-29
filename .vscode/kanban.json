@@ -70,16 +70,16 @@
             "title": "Doing",
             "tasks": [
                 {
-                    "text": "## Menu\n\n- Create an Opening Menu\n- Button that starts game",
-                    "id": "cksxo0g7400053z5s5n2cn4qz"
-                },
-                {
                     "text": "## Pause Menu in Game\n- Quit Menu",
                     "id": "cksxo0u5100063z5suy7ks2x3"
                 },
                 {
-                    "text": "## Return to Main Menu",
+                    "text": "## Return to Main Menu\n- Add button to return to main menu",
                     "id": "cksxo2rye00073z5s9rk26qwz"
+                },
+                {
+                    "text": "## Add Controls Button\n- Create a Controls View to show controls",
+                    "id": "cksxonyut00053z5sr2htzeyk"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -143,6 +143,10 @@
                 {
                     "text": "## Have Minium Fuel\nThe boost will only custom 90% of the fuel. Never the last 10%",
                     "id": "cksnprb0q00053z5sx017yzzg"
+                },
+                {
+                    "text": "## Menu\n\n- Create an Opening Menu\n- Button that starts game",
+                    "id": "cksxo0g7400053z5s5n2cn4qz"
                 }
             ],
             "id": "ckserjgg600093z5s8qsb7ns3",
@@ -151,5 +155,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630269026035
+    "timestamp": 1630270014725
 }
