@@ -70,8 +70,16 @@
             "title": "Doing",
             "tasks": [
                 {
-                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
-                    "id": "cksmneyjz00073z5shm9yn1jv"
+                    "text": "## Menu\n\n- Create an Opening Menu\n- Button that starts game",
+                    "id": "cksxo0g7400053z5s5n2cn4qz"
+                },
+                {
+                    "text": "## Pause Menu in Game\n- Quit Menu",
+                    "id": "cksxo0u5100063z5suy7ks2x3"
+                },
+                {
+                    "text": "## Return to Main Menu",
+                    "id": "cksxo2rye00073z5s9rk26qwz"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -80,6 +88,10 @@
         {
             "title": "Done",
             "tasks": [
+                {
+                    "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
+                    "id": "cksmneyjz00073z5shm9yn1jv"
+                },
                 {
                     "text": "# Fix\n### Don't reverse rotation \nIf I switch to the other side of the axis. Just keep going\n",
                     "id": "ckskydsco00053z5syp1nrgx8"
@@ -139,5 +151,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630074305758
+    "timestamp": 1630269026035
 }
