@@ -36,6 +36,9 @@ func _ready():
 	Events.emit_signal("connect_ship", self)
 
 func _process(delta: float) -> void:
+	update_crosshairs()
+	
+func _physics_process(delta: float) -> void:
 	match _movement_state:
 		Movement.Decel:
 			decel_process(delta)
@@ -44,7 +47,6 @@ func _process(delta: float) -> void:
 	engine.boost = boost
 	engine.thrust = thrust
 	rotator.target = rotation_target
-	update_crosshairs()
 
 func decel_process(_delta: float) -> void:
 	rotation_target = linear_velocity.normalized() * -1
@@ -52,8 +54,6 @@ func decel_process(_delta: float) -> void:
 	if should_cancel_decel():
 		_set_movement_state(Movement.Standard)
 		return
-	if thrust.distance_squared_to(Vector2.RIGHT.rotated(rotation)) < 0.002:
-		boost = 0.05
 	if linear_velocity.length_squared() < 1:
 		thrust = Vector2.ZERO
 		linear_velocity = Vector2.ZERO
@@ -92,8 +92,7 @@ func should_cancel_decel() -> bool:
 	return (Input.is_action_just_pressed("thrust_down") or
 		Input.is_action_just_pressed("thrust_left") or
 		Input.is_action_just_pressed("thrust_right") or
-		Input.is_action_just_pressed("thrust_up") or
-		Input.is_action_just_pressed("boost"))
+		Input.is_action_just_pressed("thrust_up"))
 
 
 func move_input() -> void:
@@ -106,5 +105,5 @@ func move_input() -> void:
 		_thrust.y -= 1
 	if Input.is_action_pressed("thrust_right"):
 		_thrust.y += 1
-	boost = 1.0 if Input.is_action_pressed("boost") else 0.0
+	# boost = 1.0 if Input.is_action_pressed("boost") else 0.0
 	thrust = _thrust.normalized().rotated(rotation)
