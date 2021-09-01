@@ -15,6 +15,7 @@ layer = 100
 
 [node name="Pause" type="Control" parent="PauseLayer"]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 7 )
@@ -23,7 +24,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="PauseLayer/Pause"]
-visible = false
 modulate = Color( 0.145098, 0.054902, 0.172549, 0.639216 )
 anchor_right = 1.0
 anchor_bottom = 1.0

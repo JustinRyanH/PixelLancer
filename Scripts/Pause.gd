@@ -10,8 +10,8 @@ func _pause_game() -> void:
 	var current_state = tree.paused
 	
 	if current_state == true:
-		$ColorRect.visible = false
+		visible = false
 	else:
-		$ColorRect.visible = true
+		visible = true
 		
 	tree.paused = !current_state
