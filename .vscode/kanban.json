@@ -23,6 +23,10 @@
                 {
                     "text": "## Create Experiments\n\nSometimes I want to try out multiple different things, and have people try them out. I want to create an UI to switch between experiments ",
                     "id": "cksxrvtg700053z5sdi1sg6mw"
+                },
+                {
+                    "text": "## Thruster Reducation shows up in particles\n\nParticle Reduction shows up\n",
+                    "id": "cksp2pmvr00053z5szuw0j7u0"
                 }
             ],
             "id": "ckshm0i2300063z5sbyq65qvv",
@@ -36,15 +40,7 @@
                     "id": "cksqwe8x000053z5shwjxqtte"
                 },
                 {
-                    "text": "## Smooth out boost line\n\nI think I just need to lerp the last to the second to last point and remove when they're close enough",
-                    "id": "cksf3x7h600053z5su34hi87h"
-                },
-                {
-                    "text": "## Thruster Reducation shows up in particles\n\nParticle Reduction shows up\n",
-                    "id": "cksp2pmvr00053z5szuw0j7u0"
-                },
-                {
-                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the player that the current Thrust less powerful or more powerful based on ship direction",
+                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the player that the current Thrust less powerful or more powerful based on ship direction\n\n- Show the direction the ship velolcity is",
                     "id": "cksggdlrq00053z5sj9bt41i1"
                 }
             ],
@@ -63,8 +59,12 @@
                     "id": "ckserxr78000j3z5sl3hqi6m8"
                 },
                 {
-                    "text": "## Boost exceeds Velocity\nBoost exceeds the maximum length",
-                    "id": "cksqw3cy700053z5se92ccosj"
+                    "text": "## Return to Main Menu\n- Add button to return to main menu",
+                    "id": "cksxo2rye00073z5s9rk26qwz"
+                },
+                {
+                    "text": "## Add Controls Button\n- Create a Controls View to show controls",
+                    "id": "cksxonyut00053z5sr2htzeyk"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -76,14 +76,6 @@
                 {
                     "text": "## Pause Menu in Game\n- Quit Menu",
                     "id": "cksxo0u5100063z5suy7ks2x3"
-                },
-                {
-                    "text": "## Return to Main Menu\n- Add button to return to main menu",
-                    "id": "cksxo2rye00073z5s9rk26qwz"
-                },
-                {
-                    "text": "## Add Controls Button\n- Create a Controls View to show controls",
-                    "id": "cksxonyut00053z5sr2htzeyk"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -159,5 +151,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630275458927
+    "timestamp": 1630507538917
 }
