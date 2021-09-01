@@ -27,6 +27,10 @@
                 {
                     "text": "## Thruster Reducation shows up in particles\n\nParticle Reduction shows up\n",
                     "id": "cksp2pmvr00053z5szuw0j7u0"
+                },
+                {
+                    "text": "## Options\n\nCreate Option to how thrusters work\n\n- Absolute to Screen?\n- Always towards the Mouse?\n- Where the ship is facing",
+                    "id": "ckt1ojtfz00053z5s5hz85oc0"
                 }
             ],
             "id": "ckshm0i2300063z5sbyq65qvv",
@@ -151,5 +155,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630507538917
+    "timestamp": 1630511733920
 }
