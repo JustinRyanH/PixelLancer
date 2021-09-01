@@ -7,9 +7,10 @@
 [ext_resource path="res://UI/GameUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/star_tiny.png" type="Texture" id=6]
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/GameWorld.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=8]
 
 [node name="Node" type="Node"]
+script = ExtResource( 8 )
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 layer = 100
@@ -21,7 +22,6 @@ layer = 100
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 5 )]
 
 [node name="GameWorld" type="Node2D" parent="."]
-script = ExtResource( 8 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="GameWorld"]
 environment = ExtResource( 4 )

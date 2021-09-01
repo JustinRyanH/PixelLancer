@@ -1,5 +1,6 @@
 extends Control
 
+signal pause
 var is_control_open := false
 
 const CONTROL_UI = preload("res://UI/ControlsUI.tscn")
@@ -10,15 +11,16 @@ func _input(event: InputEvent) -> void:
 			_unpause_game() if get_tree().paused else _pause_game()
 
 func _pause_game() -> void:
-	var tree = get_tree()
+	Events.emit_signal("game_paused")
+	
 	visible = true
-	tree.paused = true
 	$VBoxContainer/Return.grab_focus()
 
 func _unpause_game() -> void:
-	var tree = get_tree()
+	Events.emit_signal("game_unpaused")
+	
+	
 	visible = false
-	tree.paused = false
 
 func _on_Return_pressed():
 	_unpause_game()
