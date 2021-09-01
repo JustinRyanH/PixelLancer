@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if parent.fuel <= 0:
 		return
 	if boost > 0.0 and parent.fuel > _boost_fuel_min:
-		reduce_fuel(delta * boost_fuel_consumption_multiplayer)
+		reduce_fuel(delta * boost_fuel_consumption_multiplayer * boost)
 		parent.apply_central_impulse(
 			Vector2.RIGHT.rotated(parent.rotation) * thruster_power * boost * boost_multiplayer * delta)
 	if _rotated_thrust.length_squared() > 0:
