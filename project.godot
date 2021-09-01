@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "DebugAngleCircle",
 "language": "GDScript",
-"path": "res://Prefabs/Ship/DebugCircle.gd"
+"path": "res://Tools/DebugCircle.gd"
 }, {
 "base": "Node2D",
 "class": "RotationThruster",
