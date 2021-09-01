@@ -2,6 +2,8 @@ extends Control
 
 var is_control_open := false
 
+const CONTROL_UI = preload("res://UI/ControlsUI.tscn")
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if not is_control_open:
@@ -11,6 +13,7 @@ func _pause_game() -> void:
 	var tree = get_tree()
 	visible = true
 	tree.paused = true
+	$VBoxContainer/Return.grab_focus()
 
 func _unpause_game() -> void:
 	var tree = get_tree()
@@ -26,7 +29,7 @@ func _on_Exit_pressed():
 
 func _on_Controls_pressed():
 	is_control_open = true
-	var options: ControlsUI = load("res://UI/ControlsUI.tscn").instance()
+	var options: ControlsUI = CONTROL_UI.instance()
 	options.connect("close", self, "_on_control_closed")
 	add_child(options)
 	
