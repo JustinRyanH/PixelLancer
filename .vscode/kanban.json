@@ -46,6 +46,10 @@
                 {
                     "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the player that the current Thrust less powerful or more powerful based on ship direction\n\n- Show the direction the ship velolcity is",
                     "id": "cksggdlrq00053z5sj9bt41i1"
+                },
+                {
+                    "text": "## Create Screen Shake when moving\nAdds more juice",
+                    "id": "ckserxr78000j3z5sl3hqi6m8"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -57,18 +61,6 @@
                 {
                     "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
                     "id": "cksmnh4aj00083z5s62id53xg"
-                },
-                {
-                    "text": "## Create Screen Shake when moving\nAdds more juice",
-                    "id": "ckserxr78000j3z5sl3hqi6m8"
-                },
-                {
-                    "text": "## Return to Main Menu\n- Add button to return to main menu",
-                    "id": "cksxo2rye00073z5s9rk26qwz"
-                },
-                {
-                    "text": "## Add Controls Button\n- Create a Controls View to show controls",
-                    "id": "cksxonyut00053z5sr2htzeyk"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -78,8 +70,8 @@
             "title": "Doing",
             "tasks": [
                 {
-                    "text": "## Pause Menu in Game\n- Quit Menu",
-                    "id": "cksxo0u5100063z5suy7ks2x3"
+                    "text": "## Add Controls Button\n- Create a Controls View to show controls",
+                    "id": "cksxonyut00053z5sr2htzeyk"
                 }
             ],
             "id": "ckserjgg600083z5sc6xbk4ot",
@@ -109,6 +101,10 @@
                     "id": "cksiabqjx00053z5s7w8r8q89"
                 },
                 {
+                    "text": "## Return to Main Menu\n- Add button to return to main menu",
+                    "id": "cksxo2rye00073z5s9rk26qwz"
+                },
+                {
                     "text": "## Add Fuel Economy\n\nI think the interesting thing with Newtonain Space physics is how fuel economy comes into play",
                     "id": "ckseru3yl000e3z5solu3yq5f"
                 },
@@ -123,6 +119,10 @@
                 {
                     "text": "## Make Boost\n\nThe ship should boost when spacebar is hit. ",
                     "id": "ckserthr7000d3z5s8sgf3bz7"
+                },
+                {
+                    "text": "## Pause Menu in Game\n- Quit Menu",
+                    "id": "cksxo0u5100063z5suy7ks2x3"
                 },
                 {
                     "text": "# Design\n## Rotation Reverses before it gets to the deadzone\n\nLogically the ship would start restisting change before it gets to the dead zone. I think this will improve the feel",
@@ -155,5 +155,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630511733920
+    "timestamp": 1630523693920
 }

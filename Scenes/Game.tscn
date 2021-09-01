@@ -28,6 +28,36 @@ modulate = Color( 0.145098, 0.054902, 0.172549, 0.639216 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseLayer/Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Return" type="Button" parent="PauseLayer/Pause/VBoxContainer"]
+margin_right = 80.0
+margin_bottom = 20.0
+text = "Return"
+
+[node name="Controls" type="Button" parent="PauseLayer/Pause/VBoxContainer"]
+margin_top = 24.0
+margin_right = 80.0
+margin_bottom = 44.0
+text = "Controls"
+
+[node name="Exit" type="Button" parent="PauseLayer/Pause/VBoxContainer"]
+margin_top = 48.0
+margin_right = 80.0
+margin_bottom = 68.0
+text = "Exit"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource( 5 )]
@@ -98,3 +128,6 @@ modulate = Color( 1.05, 1.05, 1.05, 1 )
 material = ExtResource( 2 )
 position = Vector2( 445.735, 371.648 )
 texture = ExtResource( 6 )
+
+[connection signal="pressed" from="PauseLayer/Pause/VBoxContainer/Return" to="PauseLayer/Pause" method="_on_Return_pressed"]
+[connection signal="pressed" from="PauseLayer/Pause/VBoxContainer/Exit" to="PauseLayer/Pause" method="_on_Exit_pressed"]
