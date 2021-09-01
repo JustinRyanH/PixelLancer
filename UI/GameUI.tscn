@@ -1,0 +1,237 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Poppins-ExtraBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/DebugUI.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_size = 2
+outline_color = Color( 0.294118, 0.294118, 0.294118, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0.819608, 0.819608, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.294118, 0.294118, 0.294118, 1 )
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+shadow_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 8.65739
+margin_right = 1.0
+margin_bottom = 8.65741
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ship" type="VBoxContainer" parent="."]
+margin_left = 11.3393
+margin_right = 111.339
+margin_bottom = 102.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelLabel" type="Label" parent="Ship"]
+margin_right = 146.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.819608, 0.819608, 1 )
+text = "FUEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelBox" type="HBoxContainer" parent="Ship"]
+margin_top = 30.0
+margin_right = 146.0
+margin_bottom = 72.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelBar" type="ProgressBar" parent="Ship/FuelBox"]
+margin_right = 100.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 100, 42 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+value = 25.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RechargeBar" type="ProgressBar" parent="Ship/FuelBox"]
+margin_left = 104.0
+margin_right = 146.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 42, 42 )
+rect_pivot_offset = Vector2( 21, 21 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+
+[node name="SpeedBox" type="HBoxContainer" parent="Ship"]
+margin_top = 76.0
+margin_right = 146.0
+margin_bottom = 102.0
+
+[node name="SpeedLabel" type="Label" parent="Ship/SpeedBox"]
+margin_right = 61.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.819608, 0.819608, 1 )
+text = "SPEED:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedValue" type="Label" parent="Ship/SpeedBox"]
+margin_left = 65.0
+margin_right = 77.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.819608, 0.819608, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RotationSection" type="VBoxContainer" parent="."]
+margin_left = 299.384
+margin_top = 365.733
+margin_right = 499.384
+margin_bottom = 497.733
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TargetAngle" type="HBoxContainer" parent="RotationSection"]
+margin_right = 200.0
+margin_bottom = 23.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="RotationSection/TargetAngle"]
+margin_right = 124.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "Target Angle: "
+
+[node name="Value" type="Label" parent="RotationSection/TargetAngle"]
+margin_left = 128.0
+margin_right = 128.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActualAngle" type="HBoxContainer" parent="RotationSection"]
+margin_top = 27.0
+margin_right = 200.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="RotationSection/ActualAngle"]
+margin_right = 120.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "Actual Angle: "
+
+[node name="Value" type="Label" parent="RotationSection/ActualAngle"]
+margin_left = 124.0
+margin_right = 124.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AngularVelocity" type="HBoxContainer" parent="RotationSection"]
+margin_top = 54.0
+margin_right = 200.0
+margin_bottom = 77.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="RotationSection/AngularVelocity"]
+margin_right = 154.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "Angular Velcoity: "
+
+[node name="Value" type="Label" parent="RotationSection/AngularVelocity"]
+margin_left = 158.0
+margin_right = 168.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AngularDamping" type="HBoxContainer" parent="RotationSection"]
+margin_top = 81.0
+margin_right = 200.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="RotationSection/AngularDamping"]
+margin_right = 163.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "Angular Damping: "
+
+[node name="Value" type="Label" parent="RotationSection/AngularDamping"]
+margin_left = 167.0
+margin_right = 177.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "3"
+
+[node name="DebugMode" type="HBoxContainer" parent="RotationSection"]
+margin_top = 108.0
+margin_right = 200.0
+margin_bottom = 132.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Label" parent="RotationSection/DebugMode"]
+margin_right = 118.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "Debug Mode: "
+
+[node name="CheckBox" type="CheckBox" parent="RotationSection/DebugMode"]
+margin_left = 122.0
+margin_right = 146.0
+margin_bottom = 24.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[connection signal="toggled" from="RotationSection/DebugMode/CheckBox" to="." method="_on_Debug_CheckBox_toggled"]
