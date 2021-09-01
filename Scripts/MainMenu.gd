@@ -1,6 +1,5 @@
 extends Control
 
-
 onready var start_button := $VBoxContainer/Start
 
 
@@ -13,3 +12,6 @@ func _on_Start_pressed():
 func _on_Quit_pressed():
 	get_tree().quit()
 
+func _on_Controls_pressed():
+	var options = load("res://UI/ControlsUI.tscn").instance()
+	get_tree().root.add_child(options)

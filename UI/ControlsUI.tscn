@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/ControlUI.tres" type="Theme" id=1]
+[ext_resource path="res://UI/ControlsUI.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Poppins-ExtraBold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+color = Color( 0.0866272, 0.0247192, 0.105469, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlsLabel" type="Label" parent="."]
+anchor_left = 0.04
+anchor_top = 0.039
+anchor_right = 0.961
+anchor_bottom = 0.126
+margin_top = 0.0319996
+custom_fonts/font = SubResource( 1 )
+text = "Controls"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.25
+anchor_top = 0.13
+anchor_right = 0.75
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Forward" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 230.0
+margin_bottom = 23.0
+theme = ExtResource( 1 )
+text = "Thrust Forward"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 27.0
+margin_right = 230.0
+margin_bottom = 50.0
+theme = ExtResource( 1 )
+text = "Thrust Left"
+align = 2
+
+[node name="Right" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 54.0
+margin_right = 230.0
+margin_bottom = 77.0
+theme = ExtResource( 1 )
+text = "Thrust Right"
+align = 2
+
+[node name="Backwards" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 81.0
+margin_right = 230.0
+margin_bottom = 104.0
+theme = ExtResource( 1 )
+text = "Thrust Backwards"
+align = 2
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+margin_top = 108.0
+margin_right = 230.0
+margin_bottom = 112.0
+
+[node name="Fire" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 116.0
+margin_right = 230.0
+margin_bottom = 139.0
+theme = ExtResource( 1 )
+text = "Fire"
+align = 2
+
+[node name="FullStop" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 143.0
+margin_right = 230.0
+margin_bottom = 166.0
+theme = ExtResource( 1 )
+text = "Full Stop"
+align = 2
+
+[node name="Boost" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 170.0
+margin_right = 230.0
+margin_bottom = 193.0
+theme = ExtResource( 1 )
+text = "Boost"
+align = 2
