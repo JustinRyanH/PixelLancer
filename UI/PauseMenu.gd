@@ -18,8 +18,6 @@ func _pause_game() -> void:
 
 func _unpause_game() -> void:
 	Events.emit_signal("game_unpaused")
-	
-	
 	visible = false
 
 func _on_Return_pressed():
