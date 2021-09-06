@@ -170,7 +170,7 @@ polygon = PoolVector2Array( 46.4753, -0.387695, -32.3555, -48.9721, -47.7177, -3
 [node name="Camera2D" type="Camera2D" parent="."]
 rotation = 0.785397
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 4, 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
