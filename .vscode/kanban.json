@@ -17,10 +17,6 @@
                     "id": "cksqwmufb00063z5sx7o6crp5"
                 },
                 {
-                    "text": "# Plant Orbit",
-                    "id": "cksqwoq2500073z5sxqwqmhcw"
-                },
-                {
                     "text": "## Create Experiments\n\nSometimes I want to try out multiple different things, and have people try them out. I want to create an UI to switch between experiments ",
                     "id": "cksxrvtg700053z5sdi1sg6mw"
                 },
@@ -31,6 +27,14 @@
                 {
                     "text": "## Options\n\nCreate Option to how thrusters work\n\n- Absolute to Screen?\n- Always towards the Mouse?\n- Where the ship is facing",
                     "id": "ckt1ojtfz00053z5s5hz85oc0"
+                },
+                {
+                    "text": "## Advance Thrusters\n\n### Forward Thruster Curved with Velocity\n\nAs the Ship reases peak velocity the ship  ship acceleration reduces in quality. \nIf the forward thrust is another direction it will be treated the same as near stop until the thruster catches up.\n\n### Side Thrusters allow skip\n\nI think it might be cool as a means of dodging obsticals. There might need to be limits on the effectiveness. Maybe this is a dash with double tap?",
+                    "id": "cksqwe8x000053z5shwjxqtte"
+                },
+                {
+                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the player that the current Thrust less powerful or more powerful based on ship direction\n\n- Show the direction the ship velolcity is",
+                    "id": "cksggdlrq00053z5sj9bt41i1"
                 }
             ],
             "id": "ckshm0i2300063z5sbyq65qvv",
@@ -40,16 +44,16 @@
             "title": "Backburner",
             "tasks": [
                 {
-                    "text": "## Advance Thrusters\n\n### Forward Thruster Curved with Velocity\n\nAs the Ship reases peak velocity the ship  ship acceleration reduces in quality. \nIf the forward thrust is another direction it will be treated the same as near stop until the thruster catches up.\n\n### Side Thrusters allow skip\n\nI think it might be cool as a means of dodging obsticals. There might need to be limits on the effectiveness. Maybe this is a dash with double tap?",
-                    "id": "cksqwe8x000053z5shwjxqtte"
-                },
-                {
-                    "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the player that the current Thrust less powerful or more powerful based on ship direction\n\n- Show the direction the ship velolcity is",
-                    "id": "cksggdlrq00053z5sj9bt41i1"
-                },
-                {
                     "text": "## Create Screen Shake when moving\nAdds more juice",
                     "id": "ckserxr78000j3z5sl3hqi6m8"
+                },
+                {
+                    "text": "## Inner Deadzone\n\nCreate a little dead zone inside the radius of the ship so that we don't get accidental janky behavior",
+                    "id": "ckt32musf00063z5sjrlhewtr"
+                },
+                {
+                    "text": "# Plant Orbit",
+                    "id": "cksqwoq2500073z5sxqwqmhcw"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -61,6 +65,26 @@
                 {
                     "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
                     "id": "cksmnh4aj00083z5s62id53xg"
+                },
+                {
+                    "text": "## Improved Star Field",
+                    "id": "ckt34qbry00083z5skwaksjsh"
+                },
+                {
+                    "text": "## Big Thruster Sound",
+                    "id": "ckt36df6f00093z5svluqj6ld"
+                },
+                {
+                    "text": "## Rotation Thruster Sound",
+                    "id": "ckt36edp4000d3z5sxa433qhy"
+                },
+                {
+                    "text": "## Menu Music",
+                    "id": "ckt36dvon000b3z5siyemlyum"
+                },
+                {
+                    "text": "## Ambiant Music",
+                    "id": "ckt36e5qz000c3z5svb4ibwtm"
                 }
             ],
             "id": "ckserjgg600073z5siqx6htnl",
@@ -68,12 +92,7 @@
         },
         {
             "title": "Doing",
-            "tasks": [
-                {
-                    "text": "## Add Controls Button\n- Create a Controls View to show controls",
-                    "id": "cksxonyut00053z5sr2htzeyk"
-                }
-            ],
+            "tasks": [],
             "id": "ckserjgg600083z5sc6xbk4ot",
             "color": "#0693e3"
         },
@@ -83,6 +102,14 @@
                 {
                     "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
                     "id": "cksmneyjz00073z5shm9yn1jv"
+                },
+                {
+                    "text": "## Control Menu Button Display\n\n Display which inputs are mapped to which command",
+                    "id": "ckt32s1d400073z5s46u9b7vz"
+                },
+                {
+                    "text": "## Add Controls Button\n- Create a Controls View to show controls",
+                    "id": "cksxonyut00053z5sr2htzeyk"
                 },
                 {
                     "text": "# Fix\n### Don't reverse rotation \nIf I switch to the other side of the axis. Just keep going\n",
@@ -155,5 +182,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630523693920
+    "timestamp": 1630964544141
 }
