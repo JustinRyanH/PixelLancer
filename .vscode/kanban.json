@@ -35,6 +35,10 @@
                 {
                     "text": "## Visualize the Thrust Direction Effect in UI\nCreate some sort of balance object to show the player that the current Thrust less powerful or more powerful based on ship direction\n\n- Show the direction the ship velolcity is",
                     "id": "cksggdlrq00053z5sj9bt41i1"
+                },
+                {
+                    "text": "## Stretch and Squash Animations",
+                    "id": "ckt96kl9500053z5s12tk0soh"
                 }
             ],
             "id": "ckshm0i2300063z5sbyq65qvv",
@@ -62,10 +66,6 @@
         {
             "title": "To-Do",
             "tasks": [
-                {
-                    "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
-                    "id": "cksmnh4aj00083z5s62id53xg"
-                },
                 {
                     "text": "## Improved Star Field",
                     "id": "ckt34qbry00083z5skwaksjsh"
@@ -102,6 +102,10 @@
                 {
                     "text": "## Deacculerate Key\n\nTrigger the thruster in the opposite direction of the current velocity",
                     "id": "cksmneyjz00073z5shm9yn1jv"
+                },
+                {
+                    "text": "## Create an Asteroid to Dodge\n\nLittle Asteroids Spawn in the World. The ship can collide with them",
+                    "id": "cksmnh4aj00083z5s62id53xg"
                 },
                 {
                     "text": "## Control Menu Button Display\n\n Display which inputs are mapped to which command",
@@ -182,5 +186,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630964544141
+    "timestamp": 1630965534126
 }
