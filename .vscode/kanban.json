@@ -54,10 +54,6 @@
                 {
                     "text": "## Inner Deadzone\n\nCreate a little dead zone inside the radius of the ship so that we don't get accidental janky behavior",
                     "id": "ckt32musf00063z5sjrlhewtr"
-                },
-                {
-                    "text": "# Plant Orbit",
-                    "id": "cksqwoq2500073z5sxqwqmhcw"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -92,7 +88,12 @@
         },
         {
             "title": "Doing",
-            "tasks": [],
+            "tasks": [
+                {
+                    "text": "# Plant Orbit",
+                    "id": "cksqwoq2500073z5sxqwqmhcw"
+                }
+            ],
             "id": "ckserjgg600083z5sc6xbk4ot",
             "color": "#0693e3"
         },
@@ -186,5 +187,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630965534126
+    "timestamp": 1630965544130
 }
