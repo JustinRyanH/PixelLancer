@@ -63,10 +63,6 @@
             "title": "To-Do",
             "tasks": [
                 {
-                    "text": "## Improved Star Field",
-                    "id": "ckt34qbry00083z5skwaksjsh"
-                },
-                {
                     "text": "## Big Thruster Sound",
                     "id": "ckt36df6f00093z5svluqj6ld"
                 },
@@ -89,6 +85,10 @@
         {
             "title": "Doing",
             "tasks": [
+                {
+                    "text": "## Improved Star Field\n\n- Make starfield fit the resize version of the world\n- Make the starfield animated\n- Make the twinkle",
+                    "id": "ckt34qbry00083z5skwaksjsh"
+                },
                 {
                     "text": "# Plant Orbit",
                     "id": "cksqwoq2500073z5sxqwqmhcw"
@@ -187,5 +187,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630965544130
+    "timestamp": 1630965926322
 }
