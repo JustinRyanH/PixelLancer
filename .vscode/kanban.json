@@ -39,6 +39,10 @@
                 {
                     "text": "## Stretch and Squash Animations",
                     "id": "ckt96kl9500053z5s12tk0soh"
+                },
+                {
+                    "text": "## Elite Dangerous Style Starfield\n\nCreate a GPU generated starfield instead of the Particle engine based one. Particle based on is gross, but less gross than just manual starfield",
+                    "id": "ckt9e3zip00063z5sawjeecw9"
                 }
             ],
             "id": "ckshm0i2300063z5sbyq65qvv",
@@ -54,6 +58,10 @@
                 {
                     "text": "## Inner Deadzone\n\nCreate a little dead zone inside the radius of the ship so that we don't get accidental janky behavior",
                     "id": "ckt32musf00063z5sjrlhewtr"
+                },
+                {
+                    "text": "## Forward Thrust pushes past Speed Limit",
+                    "id": "ckt9ew3yf00073z5sq4i7azkz"
                 }
             ],
             "id": "ckserjgg600053z5skto6ca9a",
@@ -85,10 +93,6 @@
         {
             "title": "Doing",
             "tasks": [
-                {
-                    "text": "## Improved Star Field\n\n- Make starfield fit the resize version of the world\n- Make the starfield animated\n- Make the twinkle",
-                    "id": "ckt34qbry00083z5skwaksjsh"
-                },
                 {
                     "text": "# Plant Orbit",
                     "id": "cksqwoq2500073z5sxqwqmhcw"
@@ -179,6 +183,10 @@
                 {
                     "text": "## Menu\n\n- Create an Opening Menu\n- Button that starts game",
                     "id": "cksxo0g7400053z5s5n2cn4qz"
+                },
+                {
+                    "text": "## Improved Star Field\n\n- Make starfield fit the resize version of the world\n- Make the starfield animated\n- Make the twinkle",
+                    "id": "ckt34qbry00083z5skwaksjsh"
                 }
             ],
             "id": "ckserjgg600093z5s8qsb7ns3",
@@ -187,5 +195,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1630965926322
+    "timestamp": 1630979307401
 }

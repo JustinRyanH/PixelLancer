@@ -115,10 +115,14 @@ __meta__ = {
 }
 
 [node name="RotationSection" type="VBoxContainer" parent="."]
-margin_left = 353.0
-margin_top = 359.0
-margin_right = 499.0
-margin_bottom = 498.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -150.238
+margin_top = -148.535
+margin_right = -4.23792
+margin_bottom = -9.53516
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false

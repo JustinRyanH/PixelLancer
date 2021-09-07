@@ -22,20 +22,20 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_right = 328.0
+margin_right = 456.0
 margin_bottom = 20.0
 focus_neighbour_top = NodePath("../Quit")
 text = "Start"
 
 [node name="Controls" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
-margin_right = 328.0
+margin_right = 456.0
 margin_bottom = 44.0
 text = "Controls"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 margin_top = 48.0
-margin_right = 328.0
+margin_right = 456.0
 margin_bottom = 68.0
 focus_neighbour_bottom = NodePath("../Start")
 text = "Quit"
