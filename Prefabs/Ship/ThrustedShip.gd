@@ -47,6 +47,9 @@ func _physics_process(delta: float) -> void:
 	engine.boost = boost
 	engine.thrust = thrust
 	rotator.target = rotation_target
+	
+func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	print(state.total_gravity)
 
 func decel_process(_delta: float) -> void:
 	rotation_target = linear_velocity.normalized() * -1

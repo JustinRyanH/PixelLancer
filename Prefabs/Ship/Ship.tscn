@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Prefabs/Ship/ShipRotatorV2.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Ship/Rotation.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Prefabs/Ship/SmallThrusterParticles.tres" type="Material" id=11]
 [ext_resource path="res://Prefabs/Ship/Engine.gd" type="Script" id=12]
 [ext_resource path="res://Tools/DebugCircle.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/PhysicsDebug.gd" type="Script" id=14]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -100,7 +101,6 @@ rotation_multiplayer = 8.0
 max_angular_velocity = 4.0
 
 [node name="DebugCircle" parent="ShipRotator" instance=ExtResource( 13 )]
-visible = false
 
 [node name="EngineController" type="Node2D" parent="."]
 script = ExtResource( 12 )
@@ -185,5 +185,10 @@ texture = ExtResource( 3 )
 
 [node name="FuelRechargeTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="PhysicsDebug" type="Node2D" parent="."]
+script = ExtResource( 14 )
+
+[node name="Arrow2D" type="Node2D" parent="PhysicsDebug"]
 
 [connection signal="timeout" from="FuelRechargeTimer" to="." method="_on_FuelRechargeTimer_timeout"]

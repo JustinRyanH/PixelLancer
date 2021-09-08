@@ -70,6 +70,8 @@ func _physics_process(delta: float):
 func _update_debug() -> void:
 	var debug_circle: DebugAngleCircle = $DebugCircle
 	debug_circle.visible = Debug.is_debug
+	if not Debug.is_debug:
+		return
 	debug_circle.dead_zone = _adjusted_dead_zone
 	debug_circle.adjustment_zone = _speed_adj_zone()
 	debug_circle.target_angle = target.rotated(-global_rotation).angle()
