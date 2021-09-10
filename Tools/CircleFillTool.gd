@@ -1,23 +1,24 @@
 tool
-class_name CircleEdgeTool, "res://Icons/circle_outline.svg"
-extends Line2D
+class_name CircleFillTool, "res://Icons/circle_fill.svg"
+extends Polygon2D
+
 
 export var radius := 1.0 setget set_radius
 export var segments := 90 setget set_segments
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	_redraw()
 
 func _redraw() -> void:
-	clear_points()
+	polygons.clear()
+	var points = PoolVector2Array()
 	var v = 360 / segments
 	for i in range(360):
 		if i % v != 0:
 			continue
 		var point = Vector2.UP.rotated(deg2rad(i)) * radius
-		add_point(point)
-	add_point(Vector2.UP.rotated(deg2rad(0.5)) * radius)
+		points.append(point)
+	set_polygon(points)
 
 func set_radius(v: float) -> void:
 	radius = v

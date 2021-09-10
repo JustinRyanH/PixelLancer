@@ -11,14 +11,16 @@ onready var dead_zone_node := $Deadzone
 onready var adjustment_zone_node := $AdjustmentZone
 onready var overshoot_zone_node := $OvershootZone
 onready var target_angle_node := $TargetAngle
-onready var fill_node := $Fill
+onready var fill_node := $CircleFill
 onready var edge_node := $CircleEdge
 
 func set_radius(v: float) -> void:
+	print("SET RADIUS")
 	radius = v
-	edge_node = get_node_or_null("CircleEdge")
 	if edge_node:
 		edge_node.radius = v
+	if fill_node:
+		fill_node.radius = v
 	_redraw()
 
 func set_dead_zone(v: float) -> void:
@@ -56,7 +58,6 @@ func _redraw():
 		target_angle_node.clear_points()
 		target_angle_node.add_point(Vector2.ZERO)
 		target_angle_node.add_point(Vector2.RIGHT.rotated(target_angle) * radius)
-	_redraw_debug_bg_circle()
 
 func _redraw_bounding_lines(node, bounds) -> void:
 	var i = -1
@@ -66,21 +67,3 @@ func _redraw_bounding_lines(node, bounds) -> void:
 			dz.add_point(Vector2.ZERO)
 			dz.add_point(Vector2.RIGHT.rotated(bounds * i) * radius)
 			i *= -1
-
-func _redraw_debug_bg_circle() -> void:
-	pass
-#	edge_node = get_node_or_null("Edge")
-#	fill_node = get_node_or_null("Fill")
-#	if not (edge_node and fill_node):
-#		return
-#	fill_node.polygons.clear()
-#	var points = PoolVector2Array()
-#	edge_node.clear_points()
-#	for i in range(360):
-#		if i % 4 != 0:
-#			continue
-#		var point = Vector2.UP.rotated(deg2rad(i)) * radius
-#		edge_node.add_point(point)
-#		points.append(point)
-#	fill_node.set_polygon(points)
-#	edge_node.add_point(Vector2.UP.rotated(deg2rad(0.5)) * radius)

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Tools/CircleEdgeTool.gd"
 }, {
+"base": "Polygon2D",
+"class": "CircleFillTool",
+"language": "GDScript",
+"path": "res://Tools/CircleFillTool.gd"
+}, {
 "base": "Control",
 "class": "ControlsUI",
 "language": "GDScript",
@@ -56,6 +61,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CircleEdgeTool": "res://Icons/circle_outline.svg",
+"CircleFillTool": "res://Icons/circle_fill.svg",
 "ControlsUI": "",
 "DebugAngleCircle": "",
 "RotationThruster": "",
@@ -76,6 +82,10 @@ config/icon="res://PixerLancerSquarepng.png"
 
 Events="*res://Scripts/Events.gd"
 Debug="*res://Debug.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=false
 
 [display]
 
